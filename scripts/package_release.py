@@ -91,7 +91,7 @@ def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
     optional = {f'{NAME}/assets/examples/{name}.json' for name in ('field-botanist', 'lunar-courier')}
     if not optional.issubset(skill):
         raise ValueError('Review the example list before building the SkillHub package')
-    result = {name: data for name, data in skill.items() if name not in optional}
+    result = {name: data for name, data in skill.items() if name not in optional and not name.endswith('.png')}
     path = f'{NAME}/SKILL.md'
     instruction = '`assets/examples/` contains two complete designs to illustrate component organization; design each new character from its own input.'
     text = result[path].decode('utf-8')
@@ -99,7 +99,15 @@ def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
         raise ValueError('Review the example reference before building the SkillHub package')
     examples = f'{BASE}/tree/v{version}/skills/{NAME}/assets/examples'
     replacement = f'Optional [example designs]({examples}) illustrate component organization. They are hosted on GitHub to keep this directory package small; design each new character from its own input.'
-    result[path] = text.replace(instruction, replacement).encode('utf-8')
+    text = text.replace(instruction, replacement)
+    setup_marker = 'Exact commands:\n\n'
+    if text.count(setup_marker) != 1:
+        raise ValueError('Review the helper setup instructions before packaging')
+    setup = ('Exact commands:\n\n'
+             'For this SkillHub directory package, first regenerate its PNG coordinate guides and masks from the bundled code:\n\n'
+             '```sh\n"$PY" "$SKILL_DIR/scripts/skinmaker.py" templates --out "$SKILL_DIR/assets"\n```\n\n'
+             'This creates the same coordinate aids as the full package; SkillHub accepts only text support files. Then create or revise the skin:\n\n')
+    result[path] = text.replace(setup_marker, setup).encode('utf-8')
     if sum(map(len, result.values())) > 100_000:
         raise ValueError('The complete runtime exceeds SkillHub\'s upload size limit')
     return result

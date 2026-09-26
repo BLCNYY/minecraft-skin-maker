@@ -30,5 +30,5 @@
     "Make a Minecraft skin of a forest explorer with a red scarf.",
     "Change this skin’s hoodie to green and keep its other details."
   ],
-  "release_notes": "Adds a SkillHub package within its 100 KB upload limit. All helpers, tests, references and templates are retained; two optional sample designs are linked on GitHub. Skin-generation code is unchanged."
+  "release_notes": "Adds a SkillHub package within its 100 KB limit, retaining every helper and test. Its setup regenerates PNG coordinate aids locally; two optional sample designs are linked on GitHub. Skin-generation code is unchanged."
 }
