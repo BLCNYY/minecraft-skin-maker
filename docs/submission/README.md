@@ -15,7 +15,9 @@ The OG demonstration contains only the reference and final result. The example a
 python scripts/package_release.py --out dist
 ```
 
-This creates a complete plugin ZIP, a standalone skill ZIP and SHA-256 checksums. The package builder uses an explicit file list, excludes environments and caches, and checks manifests and internal paths. It preserves all scripts, references, templates and masks required by the skill.
+This creates a complete plugin ZIP, a standalone skill ZIP, a smaller SkillHub ZIP and SHA-256 checksums. The package builder uses an explicit file list, excludes environments and caches, and checks manifests and internal paths. It preserves all scripts, references, templates and masks required by the skill.
+
+SkillHub's ZIP importer limits extracted content to 100 KB. Its package keeps every helper and test and links the two optional example designs at the matching GitHub release tag. The full examples remain in the repository and other ZIPs. The packager checks this size limit before writing the archive.
 
 ## Official submission routes
 

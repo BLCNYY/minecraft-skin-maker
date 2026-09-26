@@ -1,7 +1,7 @@
 {
   "name": "Minecraft Skin Maker",
   "slug": "minecraft-skin-maker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": {
     "name": "Ömer Balkan",
     "url": "https://github.com/BLCNYY"
@@ -30,5 +30,5 @@
     "Make a Minecraft skin of a forest explorer with a red scarf.",
     "Change this skin’s hoodie to green and keep its other details."
   ],
-  "release_notes": "Adds portable, Codex, Claude Code and Cursor plugin manifests; a Claude Code marketplace; submission materials; and reproducible release packages. The skin-generation helpers are unchanged."
+  "release_notes": "Adds a SkillHub package within its 100 KB upload limit. All helpers, tests, references and templates are retained; two optional sample designs are linked on GitHub. Skin-generation code is unchanged."
 }

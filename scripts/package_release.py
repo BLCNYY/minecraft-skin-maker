@@ -86,6 +86,25 @@ def write_archive(destination: Path, entries: dict[str, bytes]) -> dict:
             'bytes': destination.stat().st_size, 'files': len(entries)}
 
 
+def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
+    """Fit SkillHub's 100 KB import limit without removing executable helpers."""
+    optional = {f'{NAME}/assets/examples/{name}.json' for name in ('field-botanist', 'lunar-courier')}
+    if not optional.issubset(skill):
+        raise ValueError('Review the example list before building the SkillHub package')
+    result = {name: data for name, data in skill.items() if name not in optional}
+    path = f'{NAME}/SKILL.md'
+    instruction = '`assets/examples/` contains two complete designs to illustrate component organization; design each new character from its own input.'
+    text = result[path].decode('utf-8')
+    if text.count(instruction) != 1:
+        raise ValueError('Review the example reference before building the SkillHub package')
+    examples = f'{BASE}/tree/v{version}/skills/{NAME}/assets/examples'
+    replacement = f'Optional [example designs]({examples}) illustrate component organization. They are hosted on GitHub to keep this directory package small; design each new character from its own input.'
+    result[path] = text.replace(instruction, replacement).encode('utf-8')
+    if sum(map(len, result.values())) > 100_000:
+        raise ValueError('The complete runtime exceeds SkillHub\'s upload size limit')
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, default=ROOT / 'dist')
@@ -111,7 +130,8 @@ def main() -> None:
     plugin[f'{NAME}/TERMS.md'] = terms.encode()
     skill = {f'{NAME}/{path.relative_to(SKILL).as_posix()}': path.read_bytes() for path in sources}
     releases = [write_archive(args.out / f'{NAME}-plugin.zip', plugin),
-                write_archive(args.out / f'{NAME}.zip', skill)]
+                write_archive(args.out / f'{NAME}.zip', skill),
+                write_archive(args.out / f'{NAME}-skillhub.zip', skillhub_files(skill, version))]
     (args.out / 'SHA256SUMS.txt').write_text(''.join(f"{r['sha256']}  {r['file']}\n" for r in releases))
     report = {'name': NAME, 'version': version, 'archives': releases}
     (args.out / 'package-manifest.json').write_text(json.dumps(report, indent=2) + '\n')
