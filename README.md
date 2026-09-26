@@ -3,7 +3,7 @@
 [![Checks](https://github.com/BLCNYY/minecraft-skin-maker/actions/workflows/checks.yml/badge.svg)](https://github.com/BLCNYY/minecraft-skin-maker/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 
-A portable [Agent Skill](https://agentskills.io/specification) that turns an image, a text description, or both into a Minecraft player skin. Attach your character or describe an idea; your agent handles the model, pixel layout, previews and export.
+A portable skill that turns an image, a text description, or both into a Minecraft player skin. Attach your character or describe an idea; your agent handles the model, pixel layout, previews and export.
 
 ## OG example
 
