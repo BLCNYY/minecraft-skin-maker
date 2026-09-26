@@ -1,0 +1,434 @@
+{
+  "head.base.top": [
+    8,
+    0,
+    8,
+    8
+  ],
+  "head.base.bottom": [
+    16,
+    0,
+    8,
+    8
+  ],
+  "head.base.right": [
+    0,
+    8,
+    8,
+    8
+  ],
+  "head.base.front": [
+    8,
+    8,
+    8,
+    8
+  ],
+  "head.base.left": [
+    16,
+    8,
+    8,
+    8
+  ],
+  "head.base.back": [
+    24,
+    8,
+    8,
+    8
+  ],
+  "head.outer.top": [
+    40,
+    0,
+    8,
+    8
+  ],
+  "head.outer.bottom": [
+    48,
+    0,
+    8,
+    8
+  ],
+  "head.outer.right": [
+    32,
+    8,
+    8,
+    8
+  ],
+  "head.outer.front": [
+    40,
+    8,
+    8,
+    8
+  ],
+  "head.outer.left": [
+    48,
+    8,
+    8,
+    8
+  ],
+  "head.outer.back": [
+    56,
+    8,
+    8,
+    8
+  ],
+  "body.base.top": [
+    20,
+    16,
+    8,
+    4
+  ],
+  "body.base.bottom": [
+    28,
+    16,
+    8,
+    4
+  ],
+  "body.base.right": [
+    16,
+    20,
+    4,
+    12
+  ],
+  "body.base.front": [
+    20,
+    20,
+    8,
+    12
+  ],
+  "body.base.left": [
+    28,
+    20,
+    4,
+    12
+  ],
+  "body.base.back": [
+    32,
+    20,
+    8,
+    12
+  ],
+  "body.outer.top": [
+    20,
+    32,
+    8,
+    4
+  ],
+  "body.outer.bottom": [
+    28,
+    32,
+    8,
+    4
+  ],
+  "body.outer.right": [
+    16,
+    36,
+    4,
+    12
+  ],
+  "body.outer.front": [
+    20,
+    36,
+    8,
+    12
+  ],
+  "body.outer.left": [
+    28,
+    36,
+    4,
+    12
+  ],
+  "body.outer.back": [
+    32,
+    36,
+    8,
+    12
+  ],
+  "right_arm.base.top": [
+    44,
+    16,
+    3,
+    4
+  ],
+  "right_arm.base.bottom": [
+    47,
+    16,
+    3,
+    4
+  ],
+  "right_arm.base.right": [
+    40,
+    20,
+    4,
+    12
+  ],
+  "right_arm.base.front": [
+    44,
+    20,
+    3,
+    12
+  ],
+  "right_arm.base.left": [
+    47,
+    20,
+    4,
+    12
+  ],
+  "right_arm.base.back": [
+    51,
+    20,
+    3,
+    12
+  ],
+  "right_arm.outer.top": [
+    44,
+    32,
+    3,
+    4
+  ],
+  "right_arm.outer.bottom": [
+    47,
+    32,
+    3,
+    4
+  ],
+  "right_arm.outer.right": [
+    40,
+    36,
+    4,
+    12
+  ],
+  "right_arm.outer.front": [
+    44,
+    36,
+    3,
+    12
+  ],
+  "right_arm.outer.left": [
+    47,
+    36,
+    4,
+    12
+  ],
+  "right_arm.outer.back": [
+    51,
+    36,
+    3,
+    12
+  ],
+  "left_arm.base.top": [
+    36,
+    48,
+    3,
+    4
+  ],
+  "left_arm.base.bottom": [
+    39,
+    48,
+    3,
+    4
+  ],
+  "left_arm.base.right": [
+    32,
+    52,
+    4,
+    12
+  ],
+  "left_arm.base.front": [
+    36,
+    52,
+    3,
+    12
+  ],
+  "left_arm.base.left": [
+    39,
+    52,
+    4,
+    12
+  ],
+  "left_arm.base.back": [
+    43,
+    52,
+    3,
+    12
+  ],
+  "left_arm.outer.top": [
+    52,
+    48,
+    3,
+    4
+  ],
+  "left_arm.outer.bottom": [
+    55,
+    48,
+    3,
+    4
+  ],
+  "left_arm.outer.right": [
+    48,
+    52,
+    4,
+    12
+  ],
+  "left_arm.outer.front": [
+    52,
+    52,
+    3,
+    12
+  ],
+  "left_arm.outer.left": [
+    55,
+    52,
+    4,
+    12
+  ],
+  "left_arm.outer.back": [
+    59,
+    52,
+    3,
+    12
+  ],
+  "right_leg.base.top": [
+    4,
+    16,
+    4,
+    4
+  ],
+  "right_leg.base.bottom": [
+    8,
+    16,
+    4,
+    4
+  ],
+  "right_leg.base.right": [
+    0,
+    20,
+    4,
+    12
+  ],
+  "right_leg.base.front": [
+    4,
+    20,
+    4,
+    12
+  ],
+  "right_leg.base.left": [
+    8,
+    20,
+    4,
+    12
+  ],
+  "right_leg.base.back": [
+    12,
+    20,
+    4,
+    12
+  ],
+  "right_leg.outer.top": [
+    4,
+    32,
+    4,
+    4
+  ],
+  "right_leg.outer.bottom": [
+    8,
+    32,
+    4,
+    4
+  ],
+  "right_leg.outer.right": [
+    0,
+    36,
+    4,
+    12
+  ],
+  "right_leg.outer.front": [
+    4,
+    36,
+    4,
+    12
+  ],
+  "right_leg.outer.left": [
+    8,
+    36,
+    4,
+    12
+  ],
+  "right_leg.outer.back": [
+    12,
+    36,
+    4,
+    12
+  ],
+  "left_leg.base.top": [
+    20,
+    48,
+    4,
+    4
+  ],
+  "left_leg.base.bottom": [
+    24,
+    48,
+    4,
+    4
+  ],
+  "left_leg.base.right": [
+    16,
+    52,
+    4,
+    12
+  ],
+  "left_leg.base.front": [
+    20,
+    52,
+    4,
+    12
+  ],
+  "left_leg.base.left": [
+    24,
+    52,
+    4,
+    12
+  ],
+  "left_leg.base.back": [
+    28,
+    52,
+    4,
+    12
+  ],
+  "left_leg.outer.top": [
+    4,
+    48,
+    4,
+    4
+  ],
+  "left_leg.outer.bottom": [
+    8,
+    48,
+    4,
+    4
+  ],
+  "left_leg.outer.right": [
+    0,
+    52,
+    4,
+    12
+  ],
+  "left_leg.outer.front": [
+    4,
+    52,
+    4,
+    12
+  ],
+  "left_leg.outer.left": [
+    8,
+    52,
+    4,
+    12
+  ],
+  "left_leg.outer.back": [
+    12,
+    52,
+    4,
+    12
+  ]
+}

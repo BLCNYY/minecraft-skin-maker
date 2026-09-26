@@ -1,0 +1,2317 @@
+{
+  "schema_version": 1,
+  "name": "Violet-haired field explorer",
+  "model": "classic",
+  "canvas_model": "classic",
+  "palette": {
+    "skin": "#995d3e",
+    "skin_light": "#b7754d",
+    "skin_shadow": "#78412e",
+    "skin_highlight": "#c18458",
+    "hair": "#301b37",
+    "hair_mid": "#4a2852",
+    "hair_light": "#643971",
+    "hair_shadow": "#211426",
+    "eye_gold": "#efb548",
+    "eye_white": "#ead5ad",
+    "brow": "#35201d",
+    "lip": "#6e362b",
+    "lip_light": "#ac6549",
+    "jacket": "#315c5e",
+    "jacket_light": "#447777",
+    "jacket_shadow": "#23484b",
+    "jacket_seam": "#254b4c",
+    "collar": "#e8d9b5",
+    "collar_light": "#fff0cd",
+    "collar_shadow": "#bca983",
+    "scarf": "#ca891f",
+    "scarf_light": "#e9aa37",
+    "scarf_shadow": "#986019",
+    "shirt": "#43432d",
+    "shirt_light": "#54543a",
+    "shirt_shadow": "#303225",
+    "trousers": "#303044",
+    "trousers_light": "#414159",
+    "trousers_shadow": "#212232",
+    "trousers_seam": "#242538",
+    "boot": "#704831",
+    "boot_light": "#96623d",
+    "boot_shadow": "#4d3226",
+    "sole": "#2b2727",
+    "lace": "#bd9870",
+    "belt": "#60432e",
+    "metal": "#b4945b",
+    "patch": "#e6d7af",
+    "patch_dark": "#4c4b2d"
+  },
+  "base": {
+    "head": "skin",
+    "body": "jacket",
+    "right_arm": "jacket",
+    "left_arm": "jacket",
+    "right_leg": "trousers",
+    "left_leg": "trousers"
+  },
+  "components": [
+    {
+      "id": "face-and-ears",
+      "paint": [
+        {
+          "target": "head.base.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "HHHHHHHH",
+            "HHSSSHHH",
+            "HLSSSSSH",
+            "HDDSSDDH",
+            "SGDSSDGS",
+            "SSSNnSSS",
+            "SSSMmSSS",
+            "sSSssSSs"
+          ],
+          "map": {
+            "H": "hair",
+            "L": "skin_light",
+            "S": "skin",
+            "D": "brow",
+            "W": "eye_white",
+            "G": "eye_gold",
+            "N": "skin_light",
+            "n": "skin_shadow",
+            "M": "lip",
+            "m": "lip_light",
+            "s": "skin_shadow"
+          }
+        },
+        {
+          "target": [
+            "head.base.left",
+            "head.base.right",
+            "head.base.top",
+            "head.base.back"
+          ],
+          "op": "fill",
+          "color": "hair"
+        },
+        {
+          "target": "head.base.bottom",
+          "op": "fill",
+          "color": "skin_shadow"
+        },
+        {
+          "target": "head.base.bottom",
+          "op": "rect",
+          "box": [
+            2,
+            1,
+            4,
+            5
+          ],
+          "color": "skin"
+        },
+        {
+          "target": "head.base.right",
+          "op": "rect",
+          "box": [
+            6,
+            3,
+            2,
+            4
+          ],
+          "color": "skin"
+        },
+        {
+          "target": "head.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            2,
+            4
+          ],
+          "color": "skin"
+        },
+        {
+          "target": "head.base.right",
+          "op": "points",
+          "points": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "color": "skin_light"
+        },
+        {
+          "target": "head.base.left",
+          "op": "points",
+          "points": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "color": "skin_light"
+        },
+        {
+          "target": "head.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            7,
+            4,
+            1
+          ],
+          "color": "skin_shadow"
+        }
+      ]
+    },
+    {
+      "id": "purple-curl-patterns",
+      "paint": [
+        {
+          "target": "head.base.top",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "HHMMHHMH",
+            "HMLHMMLH",
+            "HMDHMLMH",
+            "MMHHDHHM",
+            "LMHMMMLH",
+            "HHDHMDHH",
+            "MMLHHMML",
+            "HLHMMLHH"
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        },
+        {
+          "target": "head.base.back",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "HHMHHMHH",
+            "HMLHMMLH",
+            "HMDHMLMH",
+            "MMHHDHHM",
+            "LMHMMMLH",
+            "HHDHMDHH",
+            "MMLHHMML",
+            "HL....HH"
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        },
+        {
+          "target": "head.outer.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".HMMHHM.",
+            "HMH..MHH",
+            "MH....HM",
+            "H......H",
+            "M......H",
+            "H.......",
+            "........",
+            "........"
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        },
+        {
+          "target": "head.outer.top",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".HMM.HM.",
+            "HMHLMHLM",
+            "MLHDMLHH",
+            "HHMHHMHM",
+            "MLHMLHHM",
+            "HMLHMMHL",
+            ".HHMMHH.",
+            "..HHHH.."
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        },
+        {
+          "target": "head.outer.back",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".HMHHMH.",
+            "HMHLMHLM",
+            "MLHDMLHH",
+            "HHMHHMHM",
+            "MLHMLHHM",
+            "HMLHMMHL",
+            ".HHMMHH.",
+            "..HHHH.."
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        },
+        {
+          "target": "head.outer.right",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".HMHHMH.",
+            "HMHLMHLM",
+            "MLHDMLHH",
+            "HHMHHMH.",
+            "MLHMLH..",
+            "HMLHM...",
+            ".HHMH...",
+            "..HH...."
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        },
+        {
+          "target": "head.outer.left",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".HMHHMH.",
+            "MLHMLHMH",
+            "HHMLDHLM",
+            ".HMHHMHH",
+            "..HLMHLM",
+            "...MHLHM",
+            "...HMHH.",
+            "....HH.."
+          ],
+          "map": {
+            "H": "hair",
+            "M": "hair_mid",
+            "L": "hair_light",
+            "D": "hair_shadow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "open-teal-jacket",
+      "paint": [
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            2,
+            0,
+            4,
+            12
+          ],
+          "color": "shirt"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            3,
+            4,
+            2,
+            4
+          ],
+          "color": "shirt_light"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            3,
+            7,
+            1,
+            2
+          ],
+          "color": "shirt_shadow"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            2,
+            11,
+            4,
+            1
+          ],
+          "color": "trousers"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            1,
+            9
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            7,
+            3,
+            1,
+            9
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.front",
+          "op": "points",
+          "points": [
+            [
+              6,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              9
+            ]
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              10
+            ],
+            [
+              6,
+              10
+            ]
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            2,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            6,
+            11,
+            2,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            1,
+            7
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            2,
+            1,
+            10
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "jacket_seam"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            1,
+            7
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            3,
+            2,
+            1,
+            10
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "jacket_seam"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.bottom",
+          "op": "fill",
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            8,
+            1
+          ],
+          "color": "jacket_seam"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            8,
+            1
+          ],
+          "color": "jacket_seam"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            8,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            3,
+            1,
+            5
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            6,
+            3,
+            1,
+            5
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            3,
+            3,
+            1,
+            5
+          ],
+          "color": "jacket_seam"
+        },
+        {
+          "target": "body.base.back",
+          "op": "points",
+          "points": [
+            [
+              2,
+              9
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              5,
+              10
+            ]
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "body.base.top",
+          "op": "rect",
+          "box": [
+            2,
+            0,
+            4,
+            4
+          ],
+          "color": "shirt"
+        }
+      ]
+    },
+    {
+      "id": "cream-collar",
+      "paint": [
+        {
+          "target": "body.outer.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "CC....CC",
+            "CLC..CLC",
+            ".CC..CC.",
+            "..c..c.."
+          ],
+          "map": {
+            "C": "collar",
+            "L": "collar_light",
+            "c": "collar_shadow"
+          }
+        },
+        {
+          "target": "body.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "color": "collar"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "points",
+          "points": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "color": "collar_shadow"
+        },
+        {
+          "target": [
+            "body.outer.right",
+            "body.outer.left"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "collar"
+        },
+        {
+          "target": "body.outer.top",
+          "op": "fill",
+          "color": "collar"
+        },
+        {
+          "target": "body.outer.top",
+          "op": "rect",
+          "box": [
+            2,
+            1,
+            4,
+            3
+          ],
+          "color": "scarf"
+        }
+      ]
+    },
+    {
+      "id": "ochre-scarf",
+      "paint": [
+        {
+          "target": "body.outer.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "..GYYG..",
+            "..YGGY..",
+            "...Yg...",
+            "...GY...",
+            "...GY...",
+            "...gY...",
+            "...YG...",
+            "....g..."
+          ],
+          "map": {
+            "G": "scarf",
+            "Y": "scarf_light",
+            "g": "scarf_shadow"
+          }
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            0,
+            4,
+            1
+          ],
+          "color": "scarf_shadow"
+        }
+      ]
+    },
+    {
+      "id": "belt-and-brass-pin",
+      "paint": [
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            2,
+            10,
+            4,
+            1
+          ],
+          "color": "belt"
+        },
+        {
+          "target": "body.base.front",
+          "op": "points",
+          "points": [
+            [
+              3,
+              10
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "body.outer.front",
+          "op": "pixels",
+          "at": [
+            6,
+            3
+          ],
+          "rows": [
+            ".Y",
+            "YG",
+            "g."
+          ],
+          "map": {
+            "Y": "scarf_light",
+            "G": "scarf",
+            "g": "scarf_shadow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rolled-jacket-sleeves",
+      "paint": [
+        {
+          "target": [
+            "right_arm.base.front",
+            "right_arm.base.back",
+            "right_arm.base.left",
+            "right_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            4
+          ],
+          "color": "skin"
+        },
+        {
+          "target": [
+            "right_arm.base.front",
+            "right_arm.base.back",
+            "right_arm.base.left",
+            "right_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": "right_arm.base.bottom",
+          "op": "fill",
+          "color": "skin_shadow"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            1,
+            1,
+            4
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            1,
+            3
+          ],
+          "color": "skin_light"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            1,
+            1,
+            5
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "points",
+          "points": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            1,
+            8
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            0,
+            1,
+            8
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            1,
+            4
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            8,
+            1,
+            4
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": [
+            "right_arm.outer.front",
+            "right_arm.outer.back",
+            "right_arm.outer.left",
+            "right_arm.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            6,
+            4,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": [
+            "right_arm.outer.front",
+            "right_arm.outer.back",
+            "right_arm.outer.left",
+            "right_arm.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            6,
+            4,
+            1
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            7,
+            1,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_arm.base.top",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_arm.base.top",
+          "op": "points",
+          "points": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": [
+            "left_arm.base.front",
+            "left_arm.base.back",
+            "left_arm.base.left",
+            "left_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            4
+          ],
+          "color": "skin"
+        },
+        {
+          "target": [
+            "left_arm.base.front",
+            "left_arm.base.back",
+            "left_arm.base.left",
+            "left_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": "left_arm.base.bottom",
+          "op": "fill",
+          "color": "skin_shadow"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            1,
+            1,
+            4
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            1,
+            3
+          ],
+          "color": "skin_light"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            1,
+            1,
+            5
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "points",
+          "points": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            1,
+            8
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            0,
+            1,
+            8
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            1,
+            4
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            8,
+            1,
+            4
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": [
+            "left_arm.outer.front",
+            "left_arm.outer.back",
+            "left_arm.outer.left",
+            "left_arm.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            6,
+            4,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": [
+            "left_arm.outer.front",
+            "left_arm.outer.back",
+            "left_arm.outer.left",
+            "left_arm.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            6,
+            4,
+            1
+          ],
+          "color": "jacket_light"
+        },
+        {
+          "target": "left_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            7,
+            1,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_arm.base.top",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_arm.base.top",
+          "op": "points",
+          "points": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "color": "jacket_light"
+        }
+      ]
+    },
+    {
+      "id": "right-sleeve-leaf-patch",
+      "paint": [
+        {
+          "target": "right_arm.outer.right",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "color": "collar_shadow"
+        },
+        {
+          "target": "right_arm.outer.right",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "color": "patch"
+        },
+        {
+          "target": "right_arm.outer.right",
+          "op": "points",
+          "points": [
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "color": "patch_dark"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            1,
+            4
+          ],
+          "color": "patch"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "points",
+          "points": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "color": "patch_dark"
+        }
+      ]
+    },
+    {
+      "id": "navy-cargo-trousers",
+      "paint": [
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            1,
+            8
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            2,
+            2,
+            1,
+            3
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            5,
+            3,
+            1
+          ],
+          "color": "trousers_seam"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            3,
+            0,
+            1,
+            8
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            1,
+            3
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "trousers_seam"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "points",
+          "points": [
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            1,
+            7
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            1,
+            1,
+            7
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "points",
+          "points": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "points",
+          "points": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            3
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.outer.right",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            1
+          ],
+          "color": "trousers"
+        },
+        {
+          "target": "right_leg.outer.right",
+          "op": "points",
+          "points": [
+            [
+              2,
+              2
+            ]
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            1,
+            8
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            2,
+            2,
+            1,
+            3
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            5,
+            3,
+            1
+          ],
+          "color": "trousers_seam"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            3,
+            0,
+            1,
+            8
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            1,
+            3
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "trousers_seam"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "points",
+          "points": [
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            1,
+            7
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "rect",
+          "box": [
+            3,
+            1,
+            1,
+            7
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "points",
+          "points": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "points",
+          "points": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            3
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.outer.left",
+          "op": "rect",
+          "box": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            1
+          ],
+          "color": "trousers"
+        },
+        {
+          "target": "left_leg.outer.left",
+          "op": "points",
+          "points": [
+            [
+              2,
+              2
+            ]
+          ],
+          "color": "metal"
+        }
+      ]
+    },
+    {
+      "id": "jacket-hem-and-pockets",
+      "paint": [
+        {
+          "target": "right_leg.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": "right_leg.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_leg.outer.front",
+          "op": "points",
+          "points": [
+            [
+              0,
+              0
+            ]
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "right_leg.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": "right_leg.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "right_leg.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": "right_leg.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "rect",
+          "box": [
+            2,
+            0,
+            2,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "rect",
+          "box": [
+            2,
+            1,
+            2,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              0
+            ]
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_leg.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": "left_leg.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        },
+        {
+          "target": "left_leg.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "jacket"
+        },
+        {
+          "target": "left_leg.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            4,
+            1
+          ],
+          "color": "jacket_shadow"
+        }
+      ]
+    },
+    {
+      "id": "brown-laced-boots",
+      "paint": [
+        {
+          "target": [
+            "right_leg.base.front",
+            "right_leg.base.back",
+            "right_leg.base.left",
+            "right_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            4
+          ],
+          "color": "boot"
+        },
+        {
+          "target": [
+            "right_leg.base.front",
+            "right_leg.base.back",
+            "right_leg.base.left",
+            "right_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "sole"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            1
+          ],
+          "color": "boot_shadow"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            2,
+            2
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              9
+            ]
+          ],
+          "color": "lace"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              8
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "color": "boot_shadow"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            2,
+            2
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            8,
+            1,
+            3
+          ],
+          "color": "boot_shadow"
+        },
+        {
+          "target": [
+            "right_leg.base.right",
+            "right_leg.base.left"
+          ],
+          "op": "points",
+          "points": [
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": "right_leg.base.bottom",
+          "op": "fill",
+          "color": "sole"
+        },
+        {
+          "target": [
+            "right_leg.outer.front",
+            "right_leg.outer.back",
+            "right_leg.outer.left",
+            "right_leg.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "boot"
+        },
+        {
+          "target": "right_leg.outer.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": [
+            "left_leg.base.front",
+            "left_leg.base.back",
+            "left_leg.base.left",
+            "left_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            4
+          ],
+          "color": "boot"
+        },
+        {
+          "target": [
+            "left_leg.base.front",
+            "left_leg.base.back",
+            "left_leg.base.left",
+            "left_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "sole"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            1
+          ],
+          "color": "boot_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            2,
+            2
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              9
+            ]
+          ],
+          "color": "lace"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              8
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "color": "boot_shadow"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            2,
+            2
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            8,
+            1,
+            3
+          ],
+          "color": "boot_shadow"
+        },
+        {
+          "target": [
+            "left_leg.base.right",
+            "left_leg.base.left"
+          ],
+          "op": "points",
+          "points": [
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "color": "boot_light"
+        },
+        {
+          "target": "left_leg.base.bottom",
+          "op": "fill",
+          "color": "sole"
+        },
+        {
+          "target": [
+            "left_leg.outer.front",
+            "left_leg.outer.back",
+            "left_leg.outer.left",
+            "left_leg.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "boot"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "color": "boot_light"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Reference inspected: brown skin, curly purple bob, amber eyes, teal field jacket, cream collar, ochre scarf, olive top, navy cargo trousers and brown lace-up boots.",
+    "The cream leaf patch is on the wearer's right upper sleeve; the gold sprig pin is on the wearer's left chest.",
+    "The unseen back continues the teal jacket with shoulder and waist seams. Purple curls wrap around the back of the head.",
+    "Curly hair, rolled cuffs, collar, scarf, cargo pockets and jacket tails are represented with the standard outer texture layer. The model retains Minecraft's standard block shape.",
+    "Classic arms were selected automatically because no arm preference was supplied."
+  ]
+}

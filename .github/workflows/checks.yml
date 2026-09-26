@@ -1,0 +1,42 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Python ${{ matrix.python }} on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.10'
+          - os: windows-latest
+            python: '3.14'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: skills/minecraft-skin-maker/requirements.txt
+      - name: Install dependencies
+        run: python -m pip install -r skills/minecraft-skin-maker/requirements.txt
+      - name: Test texture layouts, rendering and packages
+        run: python skills/minecraft-skin-maker/scripts/selftest.py --out work/checks
+      - name: Rebuild the OG example
+        run: python skills/minecraft-skin-maker/scripts/skinmaker.py build examples/og/design.json --reference examples/og/reference.png --out work/og
+      - name: Verify reproducible skin pixels
+        run: python -c "from PIL import Image; a = Image.open('work/og/skin.png'); b = Image.open('examples/og/skin.png'); assert a.size == b.size == (64, 64); assert a.convert('RGBA').tobytes() == b.convert('RGBA').tobytes(), 'OG pixels changed; inspect and update the example intentionally'"
+      - name: Validate the published Bedrock example
+        run: python skills/minecraft-skin-maker/scripts/skinmaker.py validate examples/og/skin.mcpack --model classic --png examples/og/skin.png

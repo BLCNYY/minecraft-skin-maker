@@ -1,0 +1,2031 @@
+{
+  "schema_version": 1,
+  "name": "Lunar Courier",
+  "model": "classic",
+  "canvas_model": "classic",
+  "palette": {
+    "ivory": "#dbe6e3",
+    "ivory_light": "#f0f3e8",
+    "ivory_shadow": "#a9bec2",
+    "ivory_deep": "#7d969f",
+    "navy": "#26374c",
+    "navy_deep": "#172436",
+    "navy_light": "#3b5265",
+    "orange": "#e98948",
+    "orange_light": "#ffb466",
+    "orange_shadow": "#ad542d",
+    "visor": "#254e6b",
+    "visor_dark": "#19354d",
+    "visor_light": "#498ca4",
+    "glow": "#96e7e7",
+    "metal": "#79939f",
+    "metal_light": "#b3c7ca"
+  },
+  "base": {
+    "head": "ivory",
+    "body": "ivory",
+    "right_arm": "ivory",
+    "left_arm": "ivory",
+    "right_leg": "ivory",
+    "left_leg": "ivory"
+  },
+  "components": [
+    {
+      "id": "surface-shading",
+      "paint": [
+        {
+          "target": "head.base.top",
+          "op": "fill",
+          "color": "ivory_light"
+        },
+        {
+          "target": "head.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "head.base.right",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "head.base.left",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "head.base.back",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "body.base.top",
+          "op": "fill",
+          "color": "ivory_light"
+        },
+        {
+          "target": "body.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "body.base.right",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "body.base.left",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "body.base.back",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_arm.base.top",
+          "op": "fill",
+          "color": "ivory_light"
+        },
+        {
+          "target": "right_arm.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_arm.base.top",
+          "op": "fill",
+          "color": "ivory_light"
+        },
+        {
+          "target": "left_arm.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.top",
+          "op": "fill",
+          "color": "ivory_light"
+        },
+        {
+          "target": "right_leg.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.top",
+          "op": "fill",
+          "color": "ivory_light"
+        },
+        {
+          "target": "left_leg.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "fill",
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "fill",
+          "color": "ivory_shadow"
+        }
+      ]
+    },
+    {
+      "id": "helmet-and-visor",
+      "paint": [
+        {
+          "target": "head.base.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "IIIIIIII",
+            "IssssssI",
+            "svvvvvvs",
+            "vbbbbbbv",
+            "vbccbbbv",
+            "vbbbbbbv",
+            "IssssssI",
+            "IIIsIIII"
+          ],
+          "map": {
+            "I": "ivory",
+            "s": "ivory_deep",
+            "v": "visor_dark",
+            "b": "visor",
+            "c": "visor_light"
+          }
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "color": "glow"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              5,
+              5
+            ]
+          ],
+          "color": "visor_light"
+        },
+        {
+          "target": "head.base.top",
+          "op": "rect",
+          "box": [
+            2,
+            0,
+            2,
+            8
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "head.base.top",
+          "op": "rect",
+          "box": [
+            2,
+            0,
+            1,
+            8
+          ],
+          "color": "orange_light"
+        },
+        {
+          "target": "head.base.back",
+          "op": "rect",
+          "box": [
+            4,
+            0,
+            2,
+            3
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "head.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            3,
+            6,
+            3
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "head.base.back",
+          "op": "rect",
+          "box": [
+            2,
+            4,
+            1,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "head.base.back",
+          "op": "rect",
+          "box": [
+            4,
+            4,
+            1,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "head.base.right",
+          "op": "rect",
+          "box": [
+            6,
+            2,
+            2,
+            4
+          ],
+          "color": "visor"
+        },
+        {
+          "target": "head.base.right",
+          "op": "rect",
+          "box": [
+            2,
+            3,
+            2,
+            2
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "head.base.right",
+          "op": "points",
+          "points": [
+            [
+              2,
+              3
+            ]
+          ],
+          "color": "glow"
+        },
+        {
+          "target": "head.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            7,
+            8,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "head.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            2,
+            4
+          ],
+          "color": "visor"
+        },
+        {
+          "target": "head.base.left",
+          "op": "rect",
+          "box": [
+            4,
+            3,
+            2,
+            2
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "head.base.left",
+          "op": "points",
+          "points": [
+            [
+              5,
+              3
+            ]
+          ],
+          "color": "glow"
+        },
+        {
+          "target": "head.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            7,
+            8,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "head.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "head.outer.front",
+          "op": "points",
+          "points": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "head.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "head.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "color": "ivory"
+        }
+      ]
+    },
+    {
+      "id": "suit-chest",
+      "paint": [
+        {
+          "target": "body.base.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "ssnnnnss",
+            "InnssnnI",
+            "IIsIIssI",
+            "IIIIIIII",
+            "IsIIIIII",
+            "IsIIIsII",
+            "IsIIIsII",
+            "IsIIIsII",
+            "IsIIIsII",
+            "IIIIIIII",
+            "nnnnnnnn",
+            "mmoommnn"
+          ],
+          "map": {
+            "I": "ivory",
+            "s": "ivory_shadow",
+            "n": "navy",
+            "m": "metal",
+            "o": "orange"
+          }
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            8,
+            1
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            8,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "body.outer.front",
+          "op": "rect",
+          "box": [
+            1,
+            5,
+            3,
+            3
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "body.outer.front",
+          "op": "rect",
+          "box": [
+            5,
+            5,
+            2,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "body.outer.front",
+          "op": "points",
+          "points": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "color": "glow"
+        },
+        {
+          "target": "body.outer.front",
+          "op": "rect",
+          "box": [
+            1,
+            8,
+            6,
+            1
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            1
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "body.base.right",
+          "op": "rect",
+          "box": [
+            1,
+            5,
+            2,
+            5
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            1
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "body.base.left",
+          "op": "rect",
+          "box": [
+            1,
+            5,
+            2,
+            5
+          ],
+          "color": "navy_light"
+        }
+      ]
+    },
+    {
+      "id": "courier-back-panel",
+      "paint": [
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            8,
+            1
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            8,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "rect",
+          "box": [
+            1,
+            1,
+            6,
+            8
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "rect",
+          "box": [
+            2,
+            2,
+            4,
+            6
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "rect",
+          "box": [
+            3,
+            2,
+            2,
+            5
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "rect",
+          "box": [
+            3,
+            2,
+            2,
+            1
+          ],
+          "color": "orange_light"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "points",
+          "points": [
+            [
+              2,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "color": "glow"
+        },
+        {
+          "target": "body.outer.back",
+          "op": "rect",
+          "box": [
+            1,
+            9,
+            6,
+            1
+          ],
+          "color": "ivory_deep"
+        }
+      ]
+    },
+    {
+      "id": "sleeves-and-gloves",
+      "paint": [
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            10,
+            2,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "right_arm.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            4,
+            4,
+            2
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            1
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            3
+          ],
+          "color": "navy"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "left_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            10,
+            2,
+            1
+          ],
+          "color": "metal"
+        },
+        {
+          "target": "left_arm.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        }
+      ]
+    },
+    {
+      "id": "orange-right-shoulder",
+      "paint": [
+        {
+          "target": "right_arm.outer.top",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_arm.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "right_arm.outer.back",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_arm.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "right_arm.outer.right",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_arm.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "orange"
+        },
+        {
+          "target": "right_arm.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            2,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "orange_light"
+        },
+        {
+          "target": "right_arm.outer.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "color": "ivory_light"
+        }
+      ]
+    },
+    {
+      "id": "trousers-knee-armor-and-boots",
+      "paint": [
+        {
+          "target": "right_leg.base.front",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            4,
+            2,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            9,
+            2,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "right_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "right_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "right_leg.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            2
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "right_leg.outer.front",
+          "op": "rect",
+          "box": [
+            1,
+            3,
+            2,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "right_leg.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            4,
+            2,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            1,
+            9,
+            2,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_leg.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "fill",
+          "color": "navy"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            3
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            3
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "navy_deep"
+        },
+        {
+          "target": "left_leg.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            4,
+            1
+          ],
+          "color": "orange_shadow"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            4,
+            2
+          ],
+          "color": "ivory"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "rect",
+          "box": [
+            1,
+            3,
+            2,
+            1
+          ],
+          "color": "ivory_light"
+        },
+        {
+          "target": "left_leg.base.bottom",
+          "op": "fill",
+          "color": "navy_deep"
+        }
+      ]
+    },
+    {
+      "id": "inner-leg-seams",
+      "paint": [
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            3,
+            0,
+            1,
+            12
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            3,
+            8,
+            1,
+            3
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "right_leg.outer.front",
+          "op": "rect",
+          "box": [
+            3,
+            3,
+            1,
+            2
+          ],
+          "color": "ivory_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            1,
+            12
+          ],
+          "color": "navy_light"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            8,
+            1,
+            3
+          ],
+          "color": "ivory_deep"
+        },
+        {
+          "target": "left_leg.outer.front",
+          "op": "rect",
+          "box": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "color": "ivory_shadow"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The unseen back has a compact courier equipment panel drawn within the standard outer layer."
+  ],
+  "request": "A lunar courier in ivory armor with orange trim, a navy undersuit, a blue visor, and one orange shoulder."
+}

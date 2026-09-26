@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "My Skin",
+  "model": "classic",
+  "canvas_model": "classic",
+  "palette": {
+    "foundation": "#a57760"
+  },
+  "base": {
+    "head": "foundation",
+    "body": "foundation",
+    "right_arm": "foundation",
+    "left_arm": "foundation",
+    "right_leg": "foundation",
+    "left_leg": "foundation"
+  },
+  "components": [],
+  "notes": []
+}

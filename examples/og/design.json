@@ -1,0 +1,1318 @@
+{
+  "schema_version": 1,
+  "name": "Your OG",
+  "model": "classic",
+  "canvas_model": "classic",
+  "palette": {
+    "skin": "#F9D9BD",
+    "skin_light": "#FFE3CB",
+    "skin_shadow": "#E9BBA1",
+    "skin_edge": "#D6A389",
+    "mouth": "#EBC3A7",
+    "ear_inner": "#D9A189",
+    "hair": "#F28A28",
+    "hair_light": "#FFA72D",
+    "hair_highlight": "#FFBE3A",
+    "hair_shadow": "#D76B24",
+    "hair_deep": "#B85323",
+    "eye_white": "#FDFBFA",
+    "eye_lavender": "#D0CDEA",
+    "blue_iris": "#45AAD5",
+    "blue_dark": "#326787",
+    "green_iris": "#45BD39",
+    "green_dark": "#206133",
+    "hoodie": "#4C5168",
+    "hoodie_light": "#586078",
+    "hoodie_shadow": "#414257",
+    "hoodie_deep": "#353547",
+    "hoodie_seam": "#737B93",
+    "lavender": "#9A83AC",
+    "lavender_light": "#B3A0C3",
+    "lavender_shadow": "#77668F",
+    "shirt": "#A696B5",
+    "zip": "#7B7A98",
+    "metal": "#CFD2DE",
+    "metal_shadow": "#999CB2",
+    "white": "#F5F3F4",
+    "white_shadow": "#DAD8E4",
+    "trousers": "#353749",
+    "trousers_light": "#3A3D50",
+    "trousers_shadow": "#2B2D3D",
+    "shoe": "#252938",
+    "shoe_light": "#353C4F",
+    "shoe_sole": "#CDCEDB"
+  },
+  "base": {
+    "head": "skin",
+    "body": "hoodie",
+    "right_arm": "hoodie",
+    "left_arm": "hoodie",
+    "right_leg": "trousers",
+    "left_leg": "trousers"
+  },
+  "components": [
+    {
+      "id": "hair-foundation",
+      "paint": [
+        {
+          "target": "head.base.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "HHHHOOOS",
+            "HHHOOOOS",
+            "HHOOOOSS",
+            "HHOOSssS",
+            "HOssssss",
+            "OssssssO",
+            "OssssssS",
+            "SsssssSs"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.base.top",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "HHOOSSSS",
+            "HHOOOOSS",
+            "YHHOOOOS",
+            "YYHHOOOS",
+            "YYHHOOOS",
+            "YHHHOOOS",
+            "HHHOOOSS",
+            "HHHOOOSS"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.base.back",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "SSSOOHHH",
+            "SSOOOHHH",
+            "SSOOHHHY",
+            "SSOOHHHY",
+            "SSOOOHHH",
+            "SSSOOHHH",
+            "DSSOOOHH",
+            "DDSSOOOS"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.base.right",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "HHHHHHHH",
+            "HHHHHYYY",
+            "OHHHHYYY",
+            "OHHHHHHH",
+            "OOHHHeeH",
+            "SOOHHeeO",
+            "SOOOOssO",
+            "DSSOOOOS"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.base.left",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "OSSSSSSS",
+            "OOSSSSSS",
+            "OOSSSSSS",
+            "OSSSSSSS",
+            "seeSSSSS",
+            "SeeOSSSS",
+            "SssOSSSD",
+            "OSSSSSDD"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.base.bottom",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": "head.base.bottom",
+          "op": "rect",
+          "box": [
+            1,
+            1,
+            6,
+            6
+          ],
+          "color": "skin"
+        },
+        {
+          "target": "head.base.bottom",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "color": "hair_shadow"
+        }
+      ]
+    },
+    {
+      "id": "eyes-and-expression",
+      "paint": [
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "color": "eye_white"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              4
+            ]
+          ],
+          "color": "blue_dark"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              5
+            ]
+          ],
+          "color": "blue_iris"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              5,
+              4
+            ]
+          ],
+          "color": "green_dark"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              5,
+              5
+            ]
+          ],
+          "color": "green_iris"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "color": "eye_lavender"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "color": "mouth"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "color": "skin_light"
+        },
+        {
+          "target": "head.base.front",
+          "op": "points",
+          "points": [
+            [
+              1,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "color": "skin_shadow"
+        },
+        {
+          "target": "head.base.right",
+          "op": "points",
+          "points": [
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "color": "ear_inner"
+        },
+        {
+          "target": "head.base.left",
+          "op": "points",
+          "points": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "color": "ear_inner"
+        }
+      ]
+    },
+    {
+      "id": "swept-fringe-and-side-locks",
+      "paint": [
+        {
+          "target": "head.outer.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".HHHOO..",
+            "HHHHOOO.",
+            "YHHOOOS.",
+            "HHOOS...",
+            "HO.S....",
+            "O......O",
+            ".......S",
+            "........"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.outer.top",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "........",
+            "..HH....",
+            ".YHHOO..",
+            ".YYHOO..",
+            ".YYHOO..",
+            ".YHHOO..",
+            "HHHOOO..",
+            ".HHOO..."
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.outer.right",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "........",
+            "..HHH...",
+            ".HHHHH..",
+            ".HHHHH..",
+            ".OOHH...",
+            "..OO....",
+            "...OO...",
+            "....OO.."
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.outer.left",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "........",
+            "..SS....",
+            ".OSSS...",
+            ".OSSS...",
+            "....SS..",
+            "...OSS..",
+            "..OSS...",
+            "...S...."
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        },
+        {
+          "target": "head.outer.back",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "........",
+            "...OOH..",
+            "..OOHHH.",
+            ".SOOHHH.",
+            ".SOOOHH.",
+            "..SOOHH.",
+            "...OOH..",
+            "........"
+          ],
+          "map": {
+            "Y": "hair_highlight",
+            "H": "hair_light",
+            "O": "hair",
+            "S": "hair_shadow",
+            "D": "hair_deep",
+            "s": "skin",
+            "e": "skin_shadow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hoodie-shape",
+      "paint": [
+        {
+          "target": "body.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "body.base.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "DDssssDD",
+            "DLTTTTLD",
+            ".LLTTLL.",
+            "..LZL...",
+            "...Z....",
+            "...Z....",
+            "...Z....",
+            "...Z....",
+            "...Z....",
+            "...Z....",
+            "...Z....",
+            "DDDZDDDD"
+          ],
+          "map": {
+            "D": "hoodie_shadow",
+            "s": "skin",
+            "S": "shirt",
+            "L": "hoodie_light",
+            "T": "shirt",
+            "Z": "zip"
+          }
+        },
+        {
+          "target": "body.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            8,
+            4
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "body.base.back",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "DDDDDDDD",
+            "DLLLLLLD",
+            "DLLLLLDD",
+            ".DLLLD..",
+            "..DDDD..",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........",
+            "S......S",
+            "SSSSSSSS"
+          ],
+          "map": {
+            "D": "hoodie_deep",
+            "L": "hoodie_shadow",
+            "S": "hoodie_shadow"
+          }
+        },
+        {
+          "target": [
+            "body.base.left",
+            "body.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            3
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": [
+            "body.base.left",
+            "body.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "body.base.top",
+          "op": "fill",
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "body.base.top",
+          "op": "rect",
+          "box": [
+            2,
+            1,
+            4,
+            2
+          ],
+          "color": "shirt"
+        },
+        {
+          "target": "body.base.bottom",
+          "op": "fill",
+          "color": "hoodie_shadow"
+        }
+      ]
+    },
+    {
+      "id": "hood-rim-and-cords",
+      "paint": [
+        {
+          "target": "body.outer.front",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            ".L....L.",
+            "..L..L..",
+            "...M....",
+            ".C....C.",
+            ".C....C.",
+            ".C....C.",
+            ".C....C.",
+            ".C....C.",
+            ".c....c.",
+            ".c....c.",
+            "........",
+            "........"
+          ],
+          "map": {
+            "L": "hoodie_light",
+            "M": "metal",
+            "C": "lavender",
+            "c": "lavender_shadow"
+          }
+        },
+        {
+          "target": "body.outer.back",
+          "op": "pixels",
+          "at": [
+            0,
+            0
+          ],
+          "rows": [
+            "........",
+            ".LLLLLL.",
+            ".L....L.",
+            "..LLLL..",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........"
+          ],
+          "map": {
+            "L": "hoodie_shadow"
+          }
+        },
+        {
+          "target": "body.outer.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            3,
+            1
+          ],
+          "color": "hoodie_light"
+        },
+        {
+          "target": "body.outer.right",
+          "op": "rect",
+          "box": [
+            1,
+            0,
+            3,
+            1
+          ],
+          "color": "hoodie_light"
+        }
+      ]
+    },
+    {
+      "id": "white-pocket-panels",
+      "paint": [
+        {
+          "target": "body.base.front",
+          "op": "pixels",
+          "at": [
+            0,
+            9
+          ],
+          "rows": [
+            "WWWZ.WWW",
+            "WWSZ.SWW",
+            "WWWZ.WWW"
+          ],
+          "map": {
+            "W": "white",
+            "S": "white_shadow",
+            "D": "hoodie_shadow",
+            "Z": "zip"
+          }
+        },
+        {
+          "target": "body.base.front",
+          "op": "points",
+          "points": [
+            [
+              2,
+              10
+            ],
+            [
+              5,
+              10
+            ]
+          ],
+          "color": "hoodie_seam"
+        }
+      ]
+    },
+    {
+      "id": "right_arm-smooth-sleeve",
+      "paint": [
+        {
+          "target": "right_arm.base.top",
+          "op": "fill",
+          "color": "hoodie_light"
+        },
+        {
+          "target": [
+            "right_arm.base.front",
+            "right_arm.base.back",
+            "right_arm.base.left",
+            "right_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "hoodie_light"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "right_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            4,
+            4
+          ],
+          "color": "hoodie"
+        },
+        {
+          "target": [
+            "right_arm.base.front",
+            "right_arm.base.back",
+            "right_arm.base.left",
+            "right_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            2
+          ],
+          "color": "white"
+        },
+        {
+          "target": "right_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            2
+          ],
+          "color": "white_shadow"
+        },
+        {
+          "target": [
+            "right_arm.base.front",
+            "right_arm.base.back",
+            "right_arm.base.left",
+            "right_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            1
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": [
+            "right_arm.base.front",
+            "right_arm.base.back",
+            "right_arm.base.left",
+            "right_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "skin"
+        },
+        {
+          "target": "right_arm.base.bottom",
+          "op": "fill",
+          "color": "skin_shadow"
+        },
+        {
+          "target": [
+            "right_arm.outer.front",
+            "right_arm.outer.back",
+            "right_arm.outer.left",
+            "right_arm.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            1
+          ],
+          "color": "hoodie_shadow"
+        }
+      ]
+    },
+    {
+      "id": "right_arm-seam",
+      "paint": [
+        {
+          "target": "right_arm.base.front",
+          "op": "rect",
+          "box": [
+            3,
+            7,
+            1,
+            3
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "right_arm.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            7,
+            1,
+            3
+          ],
+          "color": "hoodie_shadow"
+        }
+      ]
+    },
+    {
+      "id": "left_arm-smooth-sleeve",
+      "paint": [
+        {
+          "target": "left_arm.base.top",
+          "op": "fill",
+          "color": "hoodie_light"
+        },
+        {
+          "target": [
+            "left_arm.base.front",
+            "left_arm.base.back",
+            "left_arm.base.left",
+            "left_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "hoodie_light"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "left_arm.base.left",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            4,
+            4
+          ],
+          "color": "hoodie"
+        },
+        {
+          "target": [
+            "left_arm.base.front",
+            "left_arm.base.back",
+            "left_arm.base.left",
+            "left_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            2
+          ],
+          "color": "white"
+        },
+        {
+          "target": "left_arm.base.right",
+          "op": "rect",
+          "box": [
+            0,
+            5,
+            4,
+            2
+          ],
+          "color": "white_shadow"
+        },
+        {
+          "target": [
+            "left_arm.base.front",
+            "left_arm.base.back",
+            "left_arm.base.left",
+            "left_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            1
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": [
+            "left_arm.base.front",
+            "left_arm.base.back",
+            "left_arm.base.left",
+            "left_arm.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "skin"
+        },
+        {
+          "target": "left_arm.base.bottom",
+          "op": "fill",
+          "color": "skin_shadow"
+        },
+        {
+          "target": [
+            "left_arm.outer.front",
+            "left_arm.outer.back",
+            "left_arm.outer.left",
+            "left_arm.outer.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            10,
+            4,
+            1
+          ],
+          "color": "hoodie_shadow"
+        }
+      ]
+    },
+    {
+      "id": "left_arm-seam",
+      "paint": [
+        {
+          "target": "left_arm.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            7,
+            1,
+            3
+          ],
+          "color": "hoodie_shadow"
+        },
+        {
+          "target": "left_arm.base.back",
+          "op": "rect",
+          "box": [
+            3,
+            7,
+            1,
+            3
+          ],
+          "color": "hoodie_shadow"
+        }
+      ]
+    },
+    {
+      "id": "right_leg-trousers-and-shoes",
+      "paint": [
+        {
+          "target": "right_leg.base.top",
+          "op": "fill",
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            3,
+            7
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "right_leg.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "trousers"
+        },
+        {
+          "target": [
+            "right_leg.base.front",
+            "right_leg.base.back",
+            "right_leg.base.left",
+            "right_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            2
+          ],
+          "color": "shoe"
+        },
+        {
+          "target": "right_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "shoe_light"
+        },
+        {
+          "target": [
+            "right_leg.base.front",
+            "right_leg.base.back",
+            "right_leg.base.left",
+            "right_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "shoe_sole"
+        },
+        {
+          "target": "right_leg.base.bottom",
+          "op": "fill",
+          "color": "shoe"
+        }
+      ]
+    },
+    {
+      "id": "left_leg-trousers-and-shoes",
+      "paint": [
+        {
+          "target": "left_leg.base.top",
+          "op": "fill",
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            1,
+            3,
+            7
+          ],
+          "color": "trousers_light"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            0,
+            0,
+            4,
+            1
+          ],
+          "color": "trousers_shadow"
+        },
+        {
+          "target": "left_leg.base.back",
+          "op": "rect",
+          "box": [
+            1,
+            7,
+            2,
+            1
+          ],
+          "color": "trousers"
+        },
+        {
+          "target": [
+            "left_leg.base.front",
+            "left_leg.base.back",
+            "left_leg.base.left",
+            "left_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            2
+          ],
+          "color": "shoe"
+        },
+        {
+          "target": "left_leg.base.front",
+          "op": "rect",
+          "box": [
+            0,
+            9,
+            4,
+            1
+          ],
+          "color": "shoe_light"
+        },
+        {
+          "target": [
+            "left_leg.base.front",
+            "left_leg.base.back",
+            "left_leg.base.left",
+            "left_leg.base.right"
+          ],
+          "op": "rect",
+          "box": [
+            0,
+            11,
+            4,
+            1
+          ],
+          "color": "shoe_sole"
+        },
+        {
+          "target": "left_leg.base.bottom",
+          "op": "fill",
+          "color": "shoe"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Designed from the supplied original character image, which remains local and unchanged.",
+    "Unseen lower body: plain slate trousers and dark shoes with pale soles.",
+    "Classic arms selected automatically; select Classic/Wide when importing the PNG.",
+    "Orange fringe, side locks, hood, drawstrings and cuffs use the standard outer layer.",
+    "The curved hair and gentle smile are simplified for the standard pixel grid."
+  ],
+  "reference_brief": {
+    "identity_anchors": [
+      "Full copper-orange hair with a golden lit area over the wearer right, long asymmetrical fringe, and chin-length side locks.",
+      "Blue wearer-right eye, green wearer-left eye; soft peach complexion and a gentle small smile.",
+      "Dark muted blue-gray zip hoodie, lavender lining and drawstrings, white sleeve bands and two white lower-front pocket panels."
+    ],
+    "orientation": "Wearer right is viewer left in the front render: blue eye and the deeper fringe are on this side. Green eye is wearer left/viewer right. The image is a tilted three-quarter portrait; straighten the gaze and keep both eyes coherent.",
+    "expression": "Gentle friendly face, with a low-contrast mouth and slightly raised corner. Keep face shading soft.",
+    "materials": "Hair uses connected golden-to-copper lock shading. Hoodie is smooth muted cloth with broad quiet areas; white bands and lavender cords carry the detail.",
+    "unseen_areas": "Continue the layered orange hair and dark hood on the back. Choose plain slate trousers and dark shoes with pale soles; sleeves cover most of the hands. The cube model compresses the voluminous, curved fringe and hood into texture and selective outer patches."
+  }
+}

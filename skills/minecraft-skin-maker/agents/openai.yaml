@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minecraft Skin Maker"
+  short_description: "Create a Minecraft skin from an image or idea"
+  default_prompt: "Use $minecraft-skin-maker to turn my image or idea into a Minecraft skin."
