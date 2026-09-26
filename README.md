@@ -53,6 +53,8 @@ npx skills add BLCNYY/minecraft-skin-maker --skill minecraft-skin-maker
 
 Choose your agent and installation scope when prompted. The [skills installer](https://github.com/vercel-labs/skills) supports Claude Code, Codex, Cursor and other agent hosts. The skill itself uses Python; Node.js is needed only for this installer.
 
+You can also find it in the [skills.sh directory](https://www.skills.sh/blcnyy/minecraft-skin-maker/minecraft-skin-maker).
+
 ### Codex shortcut
 
 Paste this into Codex:
