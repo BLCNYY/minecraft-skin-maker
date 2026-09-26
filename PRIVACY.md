@@ -20,4 +20,4 @@ GitHub issues are public. Share only prompts, previews and references that you i
 
 ## Contact and changes
 
-Contact the maintainer through [the repository](https://github.com/BLCNYY/minecraft-skin-maker/issues). Changes to this document are recorded in its Git history. This policy describes version 0.2.1 of the plugin.
+Contact the maintainer through [the repository](https://github.com/BLCNYY/minecraft-skin-maker/issues). Changes to this document are recorded in its Git history. This policy describes version 0.2.2 of the plugin.

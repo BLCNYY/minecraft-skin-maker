@@ -94,7 +94,7 @@ def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
     result = {name: data for name, data in skill.items() if name not in optional and not name.endswith('.png')}
     path = f'{NAME}/SKILL.md'
     instruction = '`assets/examples/` contains two complete designs to illustrate component organization; design each new character from its own input.'
-    text = result[path].decode('utf-8')
+    text = result[path].decode('utf-8').replace('\r\n', '\n')
     if text.count(instruction) != 1:
         raise ValueError('Review the example reference before building the SkillHub package')
     examples = f'{BASE}/tree/v{version}/skills/{NAME}/assets/examples'

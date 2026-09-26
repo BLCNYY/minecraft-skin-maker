@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Minecraft Skin Maker by BLCNYY",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "plugins": [
     {
       "name": "minecraft-skin-maker",
       "source": "./",
       "description": "Turn images or text into Minecraft skins with editable designs, rendered previews and Bedrock packs.",
-      "version": "0.2.1"
+      "version": "0.2.2"
     }
   ]
 }
