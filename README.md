@@ -3,7 +3,7 @@
 [![Checks](https://github.com/BLCNYY/minecraft-skin-maker/actions/workflows/checks.yml/badge.svg)](https://github.com/BLCNYY/minecraft-skin-maker/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 
-A Codex skill that turns an image, a text description, or both into a Minecraft player skin. Attach your character or describe an idea; Codex handles the model, pixel layout, previews and export.
+A portable [Agent Skill](https://agentskills.io/specification) that turns an image, a text description, or both into a Minecraft player skin. Attach your character or describe an idea; your agent handles the model, pixel layout, previews and export.
 
 ## OG example
 
@@ -17,7 +17,17 @@ The revised skin keeps the orange fringe, blue and green eyes, lavender hoodie c
 
 The character example has [separate artwork terms](examples/og/LICENSE.md).
 
-## Install in Codex
+## Install for your agent
+
+With Node.js and npm available, run:
+
+```sh
+npx skills add BLCNYY/minecraft-skin-maker --skill minecraft-skin-maker
+```
+
+Choose your agent and installation scope when prompted. The [skills installer](https://github.com/vercel-labs/skills) supports Claude Code, Codex, Cursor and other agent hosts. The skill itself uses Python; Node.js is needed only for this installer.
+
+### Codex shortcut
 
 Paste this into Codex:
 
@@ -25,22 +35,45 @@ Paste this into Codex:
 Use $skill-installer to install https://github.com/BLCNYY/minecraft-skin-maker/tree/main/skills/minecraft-skin-maker
 ```
 
-After installation, attach an image and send:
+### Manual installation or another host
+
+Copy the complete `skills/minecraft-skin-maker` folder into your host's skills directory. Keep its scripts, references and assets together. For example:
+
+| Host | Personal skill folder | Explicit invocation |
+| --- | --- | --- |
+| Codex | `~/.codex/skills/minecraft-skin-maker/` | `$minecraft-skin-maker` |
+| Claude Code | `~/.claude/skills/minecraft-skin-maker/` | `/minecraft-skin-maker` |
+
+See [Claude Code's skill documentation](https://code.claude.com/docs/en/skills) for its discovery and invocation rules. Other hosts may use different locations or require a new session after installation.
+
+An agent without native skill discovery can read [SKILL.md](skills/minecraft-skin-maker/SKILL.md) directly from a local clone and follow the workflow, provided it has the capabilities below. A [downloadable skill ZIP](https://github.com/BLCNYY/minecraft-skin-maker/releases) is also available.
+
+## Use it
+
+After installation, attach an image and ask your agent:
 
 ```text
-Use $minecraft-skin-maker to turn this character into a Minecraft skin.
+Use the minecraft-skin-maker skill to turn this character into a Minecraft skin.
 ```
 
 For a description:
 
 ```text
-Use $minecraft-skin-maker to make a forest explorer with dark curly hair,
+Use the minecraft-skin-maker skill to make a forest explorer with dark curly hair,
 a green jacket, a red scarf and brown boots.
 ```
 
-Codex needs permission to read your reference and run local Python. The helpers use Python 3.10+, Pillow and NumPy; the skill handles dependency setup when needed. Generation uses your Codex session and its normal usage limits. The Python helpers perform local assembly and rendering without a separate image-generation API.
+## Agent requirements and compatibility
 
-For manual installation, copy the `skills/minecraft-skin-maker` folder into your Codex skills directory, normally `~/.codex/skills/`. The installed skill is available on your next turn.
+The complete workflow needs an agent that can:
+
+- Read the skill's instructions and supporting files, and write output files.
+- Run Python 3.10+ with Pillow and NumPy, setting up dependencies when needed.
+- Inspect reference images and generated previews. Text requests also include a visual review of the output.
+
+The chosen model and tools supply image interpretation and creative decisions. Generation uses that agent's normal account and usage limits. The Python helpers assemble and render locally without a separate image-generation API. `agents/openai.yaml` supplies optional Codex interface metadata; the shared workflow and helpers work independently of that file.
+
+**Validation status:** the complete creative workflow has been tested in Codex. The shared installer has been checked in isolated project directories for Claude Code, Codex and Cursor. The Python helpers pass checks on macOS, Linux and Windows. Complete generation workflows have not yet been tested in other hosts. A chat environment with no file execution or image inspection cannot complete this workflow on its own.
 
 ## What you get
 
@@ -63,12 +96,12 @@ See [format and import references](skills/minecraft-skin-maker/references/format
 
 ## How it works
 
-1. Codex reads the reference or description and records identifying features and any assumptions.
+1. Your agent reads the reference or description and records identifying features and any assumptions.
 2. It writes an editable design with named colors and components for the face, hair and clothing.
 3. Python assembles the skin, validates its texture layout and builds previews and a Bedrock pack.
-4. Codex compares the previews with the reference, corrects visible mismatches and inspects the final export.
+4. Your agent compares the previews with the reference, corrects visible mismatches and inspects the final export.
 
-Image interpretation and creative design happen in Codex. The Python tools assemble a supplied design deterministically. Given the same design, the skin PNG is reproducible; Bedrock pack identifiers are regenerated for each build.
+Image interpretation and creative design happen in the agent. The Python tools assemble a supplied design deterministically. Given the same design, the skin PNG is reproducible; Bedrock pack identifiers are regenerated for each build.
 
 ## Development
 

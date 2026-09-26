@@ -7,6 +7,10 @@ description: Create or revise importable Minecraft player skins from images, exi
 
 Turn the user's idea into a finished skin. Assume no Minecraft skin-making knowledge. Produce the first result without a setup questionnaire, options menu or approval checkpoint. Edition, arm width and layers are internal decisions. Honor volunteered preferences; otherwise use Classic arms, a 64×64 PNG and a companion `.mcpack`. Preserve a reliably known existing model. Ask only when the input is genuinely unusable, such as an inaccessible image with no description.
 
+## Agent requirements
+
+Use an agent with file read/write access, Python execution and image inspection for references and exported previews. Read supporting files relative to this skill's directory and use the host's available image-viewing and shell tools. The optional `agents/openai.yaml` file supplies Codex interface metadata; the workflow and scripts run independently of it. If visual inspection is unavailable, state that limitation and leave the visual review incomplete.
+
 ## Create
 
 1. For an image, inspect the actual attachment using the available image-viewing tool. If it is an existing skin atlas, start with the importer below to preserve its design and model. For text, interpret the description in its language. Read [likeness-and-pixel-art.md](references/likeness-and-pixel-art.md) when translating a reference or improving visual quality. Save a short `reference_brief` in the design: distinguishing features, their left/right orientation, expression, materials and assumptions for unseen areas. Keep these decisions internal and explain only useful, significant assumptions after delivery.
@@ -15,11 +19,11 @@ Turn the user's idea into a finished skin. Assume no Minecraft skin-making knowl
 4. For a local reference image, pass it to `build --reference` and open `reference-review.png`; compare the original, enlarged head details and small full-body view. If the usable reference is visible only in the conversation, compare it directly with the rendered views. Also open `preview.png` for front, back and three-quarter views. Follow the visual questions in the likeness guide, correct concrete mismatches, then rebuild and recheck. These previews sample `skin.png` directly. Inspect another angle or the UV tiles when needed. Record the actual final inspection and texture hash in `visual-inspection.md`; passing format checks alone does not establish likeness.
 5. Deliver the skin and preview first, then the Bedrock pack and short import instructions in the user's language. Keep technical explanations brief. State the required Classic or Slim selection as an import instruction after delivery. Keep `design.json` for revisions and provide it when useful. Record actual visual inspection separately from the automated report.
 
-Optional image generation can help explore a concept or supply a reference. Final placement, PNG export and validation stay deterministic. A generated character illustration is not an exported-skin preview. No image-generation or external API account is required for ordinary use: Codex supplies interpretation and pixel-design decisions.
+Optional image generation can help explore a concept or supply a reference. Final placement, PNG export and validation stay deterministic. A generated character illustration is not an exported-skin preview. The agent supplies interpretation and pixel-design decisions through its normal model access; the helpers require no separate image-generation API account.
 
 ## Run the helpers
 
-Use Python 3.10+ with Pillow and NumPy. Prefer an already available interpreter that imports both. On first use, if needed, create a local environment in the skill directory and install `requirements.txt`; handle this automatically within normal tool permissions. Example (`SKILL_DIR` means the absolute directory containing this file):
+Use Python 3.10+ with Pillow and NumPy. Prefer an already available interpreter that imports both. On first use, if needed, create a local environment in the skill directory and install `requirements.txt`; handle this automatically within normal tool permissions. The following examples use a POSIX shell; adapt the syntax to the host. On Windows, a virtual environment's interpreter is `.venv\Scripts\python.exe`. `SKILL_DIR` means the absolute directory containing this file:
 
 ```sh
 python3 -m venv "$SKILL_DIR/.venv"

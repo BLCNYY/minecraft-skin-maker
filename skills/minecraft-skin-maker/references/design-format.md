@@ -1,6 +1,6 @@
 # Editable design format
 
-Codex interprets the request or visible reference; the Python tools assemble its decisions. They do not contain an image-recognition or text-generation model. Write a design for the actual input. The blank template and examples are coordinate aids, not a fixed character preset.
+The agent interprets the request or visible reference; the Python tools assemble its decisions. They do not contain an image-recognition or text-generation model. Write a design for the actual input. The blank template and examples are coordinate aids, not a fixed character preset.
 
 ## Start
 
