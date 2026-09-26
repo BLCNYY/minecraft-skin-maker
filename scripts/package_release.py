@@ -110,7 +110,8 @@ def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
     result[path] = text.replace(setup_marker, setup).encode('utf-8')
     if sum(map(len, result.values())) > 100_000:
         raise ValueError('The complete runtime exceeds SkillHub\'s upload size limit')
-    return result
+    # SkillHub's publisher requires SKILL.md at the archive root.
+    return {name.removeprefix(f'{NAME}/'): data for name, data in result.items()}
 
 
 def main() -> None:
