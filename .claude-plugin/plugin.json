@@ -1,0 +1,21 @@
+{
+  "name": "minecraft-skin-maker",
+  "version": "0.2.0",
+  "description": "Turn images or text into Minecraft skins with editable designs, rendered previews and Bedrock packs.",
+  "author": {
+    "name": "Ömer Balkan",
+    "url": "https://github.com/BLCNYY"
+  },
+  "homepage": "https://github.com/BLCNYY/minecraft-skin-maker",
+  "repository": "https://github.com/BLCNYY/minecraft-skin-maker",
+  "license": "MIT",
+  "keywords": [
+    "minecraft",
+    "skins",
+    "pixel-art",
+    "character-design",
+    "java-edition",
+    "bedrock"
+  ],
+  "displayName": "Minecraft Skin Maker"
+}

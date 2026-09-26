@@ -1,0 +1,34 @@
+{
+  "name": "Minecraft Skin Maker",
+  "slug": "minecraft-skin-maker",
+  "version": "0.2.0",
+  "publisher": {
+    "name": "Ömer Balkan",
+    "url": "https://github.com/BLCNYY"
+  },
+  "short_description": "Turn an image or description into a Minecraft skin.",
+  "description": "Attach a character image, describe an idea, or revise an existing skin. Minecraft Skin Maker creates a 64×64 skin PNG, an editable design, previews rendered from the exported texture, and a Bedrock skin pack. It handles technical choices automatically and compares the output with your reference. Requires an agent with image inspection, file access and Python execution. Java and Windows/mobile Bedrock import instructions are included.",
+  "category": "Design",
+  "tags": [
+    "minecraft",
+    "skins",
+    "pixel-art",
+    "character-design",
+    "java-edition",
+    "bedrock"
+  ],
+  "website": "https://github.com/BLCNYY/minecraft-skin-maker",
+  "source_repository": "https://github.com/BLCNYY/minecraft-skin-maker",
+  "support": "https://github.com/BLCNYY/minecraft-skin-maker/issues",
+  "privacy_policy": "https://github.com/BLCNYY/minecraft-skin-maker/blob/main/PRIVACY.md",
+  "terms": "https://github.com/BLCNYY/minecraft-skin-maker/blob/main/TERMS.md",
+  "logo": "assets/icon.png",
+  "reference_example": "https://github.com/BLCNYY/minecraft-skin-maker/blob/main/examples/og/reference.png",
+  "result_example": "https://github.com/BLCNYY/minecraft-skin-maker/blob/main/examples/og/result.png",
+  "starter_prompts": [
+    "Turn this character image into a Minecraft skin.",
+    "Make a Minecraft skin of a forest explorer with a red scarf.",
+    "Change this skin’s hoodie to green and keep its other details."
+  ],
+  "release_notes": "Adds portable, Codex, Claude Code and Cursor plugin manifests; a Claude Code marketplace; submission materials; and reproducible release packages. The skin-generation helpers are unchanged."
+}

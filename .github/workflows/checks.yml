@@ -32,6 +32,8 @@ jobs:
           cache-dependency-path: skills/minecraft-skin-maker/requirements.txt
       - name: Install dependencies
         run: python -m pip install -r skills/minecraft-skin-maker/requirements.txt
+      - name: Validate manifests and build complete release archives
+        run: python scripts/package_release.py --out work/packages
       - name: Test texture layouts, rendering and packages
         run: python skills/minecraft-skin-maker/scripts/selftest.py --out work/checks
       - name: Rebuild the OG example

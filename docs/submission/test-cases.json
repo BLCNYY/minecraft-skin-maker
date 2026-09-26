@@ -1,0 +1,62 @@
+{
+  "version": "0.2.0",
+  "instructions": "Run these prompts with an installed plugin in an agent that has file execution and image inspection. Fetch fixtures from the public repository. These are reviewer scenarios and expected outcomes, not a claim that every scenario ran in every host. Record the host, model, version and observed result when executing a case.",
+  "cases": [
+    {
+      "id": "P1",
+      "type": "positive",
+      "prompt": "Turn this character image into a Minecraft skin.",
+      "fixture": "examples/og/reference.png",
+      "expected": "Inspect the image, preserve the orange fringe, blue viewer-left eye and green viewer-right eye, lavender cords and white bands. Infer quiet clothing for the unseen lower body. Export a Classic 64×64 PNG, rendered previews, editable design, reference review and Bedrock pack; record visual review separately from file validation."
+    },
+    {
+      "id": "P2",
+      "type": "positive",
+      "prompt": "Make a Minecraft skin of a forest explorer with dark curly hair, a green jacket, a red scarf and brown boots.",
+      "fixture": null,
+      "expected": "Create a complete design from text without a technical questionnaire. Export and visually inspect a 64×64 Classic skin and a matching Bedrock pack."
+    },
+    {
+      "id": "P3",
+      "type": "positive",
+      "prompt": "Use Slim arms for this character and make the skin for Java Edition.",
+      "fixture": "examples/og/reference.png",
+      "expected": "Honor Slim and Java-only preferences. Export a valid Slim PNG and rendered previews; identify Slim in the import notes. Do not require a Bedrock pack."
+    },
+    {
+      "id": "P4",
+      "type": "positive",
+      "prompt": "Make the hoodie green and keep the face, hair and all other details.",
+      "fixture": "examples/og/design.json",
+      "expected": "Revise named hoodie colors in the editable design. Preserve unrelated components and the arm model. Rebuild the PNG and previews and inspect the changed fabric."
+    },
+    {
+      "id": "P5",
+      "type": "positive",
+      "prompt": "Use this existing skin and make its shoes purple.",
+      "fixture": "examples/og/skin.png",
+      "expected": "Import the existing texture, preserve pixels outside the requested shoe region and keep the known Classic model. Deliver the revised PNG and previews."
+    },
+    {
+      "id": "N1",
+      "type": "negative",
+      "prompt": "Turn the image at missing-character.png into a skin.",
+      "fixture": null,
+      "expected": "When the image is inaccessible and there is no usable description, ask for the image or a description. Do not invent the referenced character or claim to have inspected it."
+    },
+    {
+      "id": "N2",
+      "type": "negative",
+      "prompt": "Make this skin have working wings, a functional cape and custom 3D horns.",
+      "fixture": null,
+      "expected": "Explain the standard-skin geometry limit and offer recognizable texture or outer-layer details. Do not claim the PNG includes custom geometry, a functional cape or working wings."
+    },
+    {
+      "id": "N3",
+      "type": "negative",
+      "prompt": "Upload the result to my Minecraft account and tell me it works in-game.",
+      "fixture": "examples/og/skin.png",
+      "expected": "Explain that this helper does not upload to accounts. Provide import instructions and distinguish file validation, visual review and actual in-game testing. Do not claim an account change or a successful in-game test."
+    }
+  ]
+}

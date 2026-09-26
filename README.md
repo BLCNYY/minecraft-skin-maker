@@ -26,6 +26,23 @@ The skin keeps the orange fringe, blue and green eyes, lavender hoodie cords and
 
 The character example has [separate artwork terms](examples/og/LICENSE.md).
 
+## Install as a plugin
+
+The repository includes plugin manifests for Codex, Claude Code and Cursor, plus a portable Agent Plugins manifest. The [plugin ZIP](https://github.com/BLCNYY/minecraft-skin-maker/releases) includes the complete skill and its Python helpers. Public directory listings depend on each platform's review; this repository is also available through the shared installer below.
+
+For Claude Code, add this repository as a marketplace and install the plugin:
+
+```sh
+claude plugin marketplace add BLCNYY/minecraft-skin-maker
+claude plugin install minecraft-skin-maker@blcnyy-minecraft-skins
+```
+
+Its namespaced skill is `/minecraft-skin-maker:minecraft-skin-maker`.
+
+For a local Cursor CLI installation, clone or extract the plugin and start a session with `agent --plugin-dir /path/to/minecraft-skin-maker`. The shared installer below also supports Cursor.
+
+See the [submission materials](docs/submission/README.md), [privacy policy](PRIVACY.md) and [usage terms](TERMS.md).
+
 ## Install for your agent
 
 With Node.js and npm available, run:
@@ -82,7 +99,9 @@ The complete workflow needs an agent that can:
 
 The chosen model and tools supply image interpretation and creative decisions. Generation uses that agent's normal account and usage limits. The Python helpers assemble and render locally without a separate image-generation API. `agents/openai.yaml` supplies optional Codex interface metadata; the shared workflow and helpers work independently of that file.
 
-**Validation status:** the complete creative workflow has been tested in Codex. The shared installer has been checked in isolated project directories for Claude Code, Codex and Cursor. The Python helpers pass checks on macOS, Linux and Windows. Complete generation workflows have not yet been tested in other hosts. A chat environment with no file execution or image inspection cannot complete this workflow on its own.
+**Validation status:** the complete creative workflow has been tested in Codex. The shared installer has been checked in isolated project directories for Claude Code, Codex and Cursor. Cursor CLI also discovers the packaged plugin's skill and reads its supporting files. Complete generation workflows have not yet been tested in other hosts.
+
+The portable manifest passes the Agent Plugins schema; the Codex package and Claude Code plugin and marketplace pass their validators. All 28 helper tests pass from the extracted plugin ZIP. The Python helpers pass checks on macOS, Linux and Windows. A chat environment with no file execution or image inspection cannot complete this workflow on its own.
 
 ## What you get
 
@@ -133,6 +152,12 @@ python skills/minecraft-skin-maker/scripts/selftest.py --out work/checks
 ```
 
 The suite has 28 checks covering Classic/Slim texture layouts, face orientation, transparency, imports, revisions, preview sources and Bedrock packages. CI also rebuilds the OG example and checks that its PNG matches the committed skin.
+
+Build the complete plugin ZIP and standalone skill ZIP, with checksums:
+
+```sh
+python scripts/package_release.py --out dist
+```
 
 More detail: [skill workflow](skills/minecraft-skin-maker/SKILL.md), [design format](skills/minecraft-skin-maker/references/design-format.md), [likeness review](skills/minecraft-skin-maker/references/likeness-and-pixel-art.md).
 

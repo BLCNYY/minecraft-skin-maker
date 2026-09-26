@@ -1,0 +1,43 @@
+{
+  "name": "minecraft-skin-maker",
+  "version": "0.2.0",
+  "description": "Turn images or text into Minecraft skins with editable designs, rendered previews and Bedrock packs.",
+  "author": {
+    "name": "Ömer Balkan",
+    "url": "https://github.com/BLCNYY"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Minecraft Skin Maker",
+    "shortDescription": "Turn an image or description into a Minecraft skin.",
+    "longDescription": "Attach a character image, describe an idea, or revise an existing skin. Minecraft Skin Maker creates a 64×64 skin PNG, an editable design, previews rendered from the exported texture, and a Bedrock skin pack. It handles technical choices automatically and compares the output with your reference. Requires an agent with image inspection, file access and Python execution. Java and Windows/mobile Bedrock import instructions are included.",
+    "developerName": "Ömer Balkan",
+    "category": "Design",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/BLCNYY/minecraft-skin-maker",
+    "privacyPolicyURL": "https://github.com/BLCNYY/minecraft-skin-maker/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/BLCNYY/minecraft-skin-maker/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Turn this character image into a Minecraft skin.",
+      "Make a Minecraft skin of a forest explorer with a red scarf.",
+      "Change this skin’s hoodie to green and keep its other details."
+    ],
+    "brandColor": "#F49B29",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  },
+  "homepage": "https://github.com/BLCNYY/minecraft-skin-maker",
+  "repository": "https://github.com/BLCNYY/minecraft-skin-maker",
+  "license": "MIT",
+  "keywords": [
+    "minecraft",
+    "skins",
+    "pixel-art",
+    "character-design",
+    "java-edition",
+    "bedrock"
+  ]
+}
