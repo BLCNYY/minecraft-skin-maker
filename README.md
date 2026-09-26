@@ -7,11 +7,20 @@ A portable skill that turns an image, a text description, or both into a Minecra
 
 ## OG example
 
-The repository owner's original character was used to test the workflow. The comparison shows the reference, the earlier result and the revised skin.
+The repository owner's original character and the skin created from it.
 
-![Original character reference, earlier generated skin and updated skin](examples/og/comparison.png)
+<table>
+  <tr>
+    <th align="center">Reference</th>
+    <th align="center">Result</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="examples/og/reference.png" alt="Original character reference" height="420"></td>
+    <td align="center"><img src="examples/og/result.png" alt="Final Minecraft skin rendered from the exported texture" height="420"></td>
+  </tr>
+</table>
 
-The revised skin keeps the orange fringe, blue and green eyes, lavender hoodie cords and white sleeve bands. It uses smoother fabric shading and selected outer layers for the hair. Plain dark trousers and shoes complete the unseen lower half.
+The skin keeps the orange fringe, blue and green eyes, lavender hoodie cords and white sleeve bands. Plain dark trousers and shoes complete the unseen lower half.
 
 [Front, back and angled preview](examples/og/preview.png) · [Face comparison](examples/og/reference-review.png) · [Skin PNG](examples/og/skin.png) · [Bedrock pack](examples/og/skin.mcpack) · [Editable design](examples/og/design.json)
 
