@@ -34,7 +34,7 @@ def skill_files() -> list[Path]:
         result.append(path)
     for required in ['SKILL.md', 'requirements.txt', 'LICENSE', 'scripts/skinmaker.py',
                      'scripts/render.py', 'scripts/uv.py', 'scripts/design.py',
-                     'scripts/review.py', 'scripts/bedrock.py', 'references/design-format.md']:
+                     'scripts/review.py', 'scripts/bedrock.py', 'scripts/tiles.py', 'references/design-format.md']:
         if SKILL / required not in result:
             raise ValueError(f'Missing required skill file: {required}')
     return result
@@ -91,7 +91,14 @@ def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
     optional = {f'{NAME}/assets/examples/{name}.json' for name in ('field-botanist', 'lunar-courier')}
     if not optional.issubset(skill):
         raise ValueError('Review the example list before building the SkillHub package')
-    result = {name: data for name, data in skill.items() if name not in optional and not name.endswith('.png')}
+    # The templates command below regenerates the PNG guides and UV maps from uv.py.
+    regenerated = {f'{NAME}/assets/{model}-uv.json' for model in ('classic', 'slim')}
+    # The maintainer test suite stays on GitHub; skin creation never runs it.
+    optional.add(f'{NAME}/scripts/selftest.py')
+    if not regenerated.issubset(skill):
+        raise ValueError('Review the regenerated asset list before building the SkillHub package')
+    result = {name: data for name, data in skill.items()
+              if name not in optional | regenerated and not name.endswith('.png')}
     path = f'{NAME}/SKILL.md'
     instruction = '`assets/examples/` contains two complete designs to illustrate component organization; design each new character from its own input.'
     text = result[path].decode('utf-8').replace('\r\n', '\n')
@@ -100,13 +107,17 @@ def skillhub_files(skill: dict[str, bytes], version: str) -> dict[str, bytes]:
     examples = f'{BASE}/tree/v{version}/skills/{NAME}/assets/examples'
     replacement = f'Optional [example designs]({examples}) illustrate component organization. They are hosted on GitHub to keep this directory package small; design each new character from its own input.'
     text = text.replace(instruction, replacement)
+    maintenance = 'For maintenance, run `"$PY" "$SKILL_DIR/scripts/selftest.py" --out work/skin-checks`.'
+    if text.count(maintenance) != 1:
+        raise ValueError('Review the maintenance instructions before building the SkillHub package')
+    text = text.replace(maintenance, f'For maintenance, run the [test suite]({BASE}/blob/v{version}/skills/{NAME}/scripts/selftest.py) from a full copy of the skill.')
     setup_marker = 'Exact commands:\n\n'
     if text.count(setup_marker) != 1:
         raise ValueError('Review the helper setup instructions before packaging')
     setup = ('Exact commands:\n\n'
              'For this SkillHub directory package, first regenerate its PNG coordinate guides and masks from the bundled code:\n\n'
              '```sh\n"$PY" "$SKILL_DIR/scripts/skinmaker.py" templates --out "$SKILL_DIR/assets"\n```\n\n'
-             'This creates the same coordinate aids as the full package; SkillHub accepts only text support files. Then create or revise the skin:\n\n')
+             'This creates the same coordinate images and UV maps as the full package; SkillHub accepts only text support files. Then create or revise the skin:\n\n')
     result[path] = text.replace(setup_marker, setup).encode('utf-8')
     if sum(map(len, result.values())) > 100_000:
         raise ValueError('The complete runtime exceeds SkillHub\'s upload size limit')

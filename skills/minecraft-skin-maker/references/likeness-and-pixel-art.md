@@ -38,6 +38,6 @@ Compare the result at both enlarged and small display sizes:
 4. **Construction:** Do collars, hood, seams, bands, pockets and cords connect logically across faces and layers?
 5. **Unknown areas:** Do the invented parts support the visible design without introducing a competing theme?
 
-Also open `preview.png` for the back and three-quarter view. Correct concrete mismatches in the editable design and rebuild. If comparing against an earlier preview, use the same view and comparable display size. State the specific improvements and remaining compromises; automated format checks do not establish visual likeness.
+Also open `preview.png` for the back and both three-quarter views. Correct concrete mismatches in the editable design and rebuild. If comparing against an earlier preview, use the same view and comparable display size. State the specific improvements and remaining compromises; automated format checks do not establish visual likeness.
 
 Record the actual final inspection in `visual-inspection.md`, with the exported PNG's SHA-256 and the features checked. Keep the automated validation report distinct. A reference review marked pending requires the agent to open the images and make the visual judgment.

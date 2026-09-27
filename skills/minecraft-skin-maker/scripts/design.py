@@ -41,6 +41,82 @@ def _integer(value):
     return isinstance(value, int) and not isinstance(value, bool)
 
 
+# Unknown keys are errors: a misspelled key such as "colour" or "paints" would
+# otherwise be ignored and silently drop part of the design.
+DESIGN_KEYS = {"schema_version", "name", "model", "canvas_model", "palette", "base", "symbols",
+               "components", "notes", "reference_brief", "request", "description", "source_png"}
+COMPONENT_KEYS = {"id", "paint", "note", "notes", "description"}
+OPERATION_KEYS = {
+    "fill": ({"color"}, set()),
+    "rect": ({"box", "color"}, set()),
+    "points": ({"points", "color"}, set()),
+    "line": ({"points", "color"}, {"width"}),
+    "polygon": ({"points", "color"}, set()),
+    "pixels": ({"rows"}, {"at", "map"}),
+}
+
+
+def _keys(where, found, required, optional):
+    missing = sorted(required - set(found))
+    unknown = sorted(set(found) - required - optional)
+    problems = []
+    if missing:
+        problems.append(f"missing {', '.join(missing)}")
+    if unknown:
+        problems.append(f"unknown key {', '.join(unknown)} (allowed: {', '.join(sorted(required | optional))})")
+    if problems:
+        raise ValueError(f"{where}: {'; '.join(problems)}")
+
+
+def check_structure(data):
+    """Reject malformed designs with a message that names the exact location."""
+    if not isinstance(data, dict):
+        raise ValueError("Design must be a JSON object")
+    _keys("design", data, {"schema_version"}, DESIGN_KEYS)
+    if data["schema_version"] != 1:
+        raise ValueError("design schema_version must be 1")
+    for key in ("model", "canvas_model"):
+        if data.get(key, "classic") not in ("classic", "slim"):
+            raise ValueError(f"design {key} must be classic or slim")
+    for key in ("palette", "base", "symbols"):
+        if not isinstance(data.get(key, {}), dict):
+            raise ValueError(f"design {key} must be an object")
+    for symbol in data.get("symbols", {}):
+        if len(symbol) != 1 or symbol == ".":
+            raise ValueError(f"symbols key {symbol!r} must be one character other than '.'")
+    components = data.get("components", [])
+    if not isinstance(components, list):
+        raise ValueError("design components must be a list")
+    identifiers = set()
+    for index, component in enumerate(components):
+        where = f"components[{index}]"
+        if not isinstance(component, dict):
+            raise ValueError(f"{where} must be an object")
+        _keys(where, component, {"id", "paint"}, COMPONENT_KEYS - {"id", "paint"})
+        identifier = component["id"]
+        if not isinstance(identifier, str) or not identifier:
+            raise ValueError(f"{where}: id must be a non-empty string")
+        if identifier in identifiers:
+            raise ValueError(f"Component IDs must be unique: {identifier}")
+        identifiers.add(identifier)
+        if not isinstance(component["paint"], list):
+            raise ValueError(f"{identifier}: paint must be a list")
+        for number, operation in enumerate(component["paint"]):
+            spot = f"{identifier}, paint[{number}]"
+            if not isinstance(operation, dict):
+                raise ValueError(f"{spot} must be an object")
+            kind = operation.get("op")
+            if kind not in OPERATION_KEYS:
+                raise ValueError(f"{spot}: op must be one of {', '.join(OPERATION_KEYS)}; got {kind!r}")
+            required, optional = OPERATION_KEYS[kind]
+            _keys(f"{spot} ({kind})", operation, required | {"op", "target"}, optional)
+            targets = operation["target"]
+            if isinstance(targets, str):
+                targets = [targets]
+            if not isinstance(targets, list) or not targets or not all(isinstance(t, str) for t in targets):
+                raise ValueError(f"{spot}: target must be a face name or a non-empty list of face names")
+
+
 def _point(point, w, h):
     if not isinstance(point, (list, tuple)) or len(point) != 2 or not all(_integer(n) for n in point):
         raise ValueError(f"Pixel point must have two integers: {point!r}")
@@ -49,11 +125,11 @@ def _point(point, w, h):
     return tuple(point)
 
 
-def _paint(tile, operation, palette):
+def _paint(tile, operation, palette, symbols=None):
     w, h = tile.size
     kind = operation["op"]
     brush = ImageDraw.Draw(tile)
-    ink = color(operation.get("color"), palette)
+    ink = color(operation["color"], palette) if "color" in operation else None
     if kind == "fill":
         tile.paste(ink, (0, 0, w, h))
     elif kind == "rect":
@@ -82,11 +158,15 @@ def _paint(tile, operation, palette):
         else:
             brush.point(points, fill=ink)
     elif kind == "pixels":
-        x, y = operation.get("at", [0, 0])
-        symbols = operation["map"]
+        at = operation.get("at", [0, 0])
+        if not isinstance(at, (list, tuple)) or len(at) != 2 or not all(_integer(n) for n in at):
+            raise ValueError(f"pixels at must be two integers: {at!r}")
+        x, y = at
+        # An operation's own map overrides the design-wide symbols.
+        symbols = {**(symbols or {}), **operation.get("map", {})}
         rows = operation["rows"]
-        if not rows or not all(isinstance(row, str) for row in rows):
-            raise ValueError("pixels rows must be non-empty strings")
+        if not isinstance(rows, list) or not rows or not all(isinstance(row, str) and row for row in rows):
+            raise ValueError("pixels rows must be a list of non-empty strings")
         for dy, row in enumerate(rows):
             for dx, symbol in enumerate(row):
                 _point((x+dx, y+dy), w, h)
@@ -99,8 +179,7 @@ def _paint(tile, operation, palette):
 
 
 def assemble(data):
-    if data.get("schema_version") != 1:
-        raise ValueError("design schema_version must be 1")
+    check_structure(data)
     model = data.get("model", "classic")
     canvas = data.get("canvas_model", model)
     faces = layout(canvas)
@@ -119,24 +198,27 @@ def assemble(data):
                 if ink[3] != 255:
                     raise ValueError(f"Base color must be opaque for {f.part}")
                 image.paste(ink, f.box)
-    identifiers = set()
+    symbols = data.get("symbols", {})
     for component in data.get("components", []):
         identifier = component["id"]
-        if not identifier or identifier in identifiers:
-            raise ValueError(f"Component IDs must be unique: {identifier}")
-        identifiers.add(identifier)
-        for operation in component.get("paint", []):
+        for operation in component["paint"]:
             targets = operation["target"]
             targets = [targets] if isinstance(targets, str) else targets
             for target in targets:
                 if target not in faces:
-                    raise ValueError(f"Unknown face {target}")
+                    raise ValueError(f"{identifier}: unknown face {target!r}; use part.layer.face such as head.outer.front")
                 f = faces[target]
                 tile = image.crop(f.box)
                 try:
-                    _paint(tile, operation, palette)
+                    _paint(tile, operation, palette, symbols)
                 except (KeyError, TypeError, ValueError) as exc:
                     raise ValueError(f"{identifier}, {target}: {exc}") from exc
+                # Report layer rule violations where they were painted, not as an atlas-wide count.
+                alpha = tile.getchannel("A").getdata()
+                if f.layer == "base" and any(a != 255 for a in alpha):
+                    raise ValueError(f"{identifier}, {target}: base pixels must stay opaque; paint transparency on the outer layer")
+                if f.layer == "outer" and any(a not in (0, 255) for a in alpha):
+                    raise ValueError(f"{identifier}, {target}: outer pixels need alpha 0 or 255, not partial transparency")
                 image.paste(tile, f.box)
     return convert_model(image, canvas, model)
 
@@ -196,6 +278,12 @@ def import_skin(path, name=None, model="auto"):
         image = canvas
         inferred = "classic"
         notes.append("Expanded legacy 64x32 skin; mirrored right limbs to create the left limbs.")
+        # Legacy editors often filled an unused hat layer with a solid color; Minecraft
+        # treats a hat area with no transparent pixel as empty, so do the same.
+        hat = image.crop((32, 0, 64, 16))
+        if min(hat.getchannel("A").getdata()) >= 128:
+            image.paste((0, 0, 0, 0), (32, 0, 64, 16))
+            notes.append("Cleared the fully opaque legacy hat layer, which Minecraft treats as no hat.")
     else:
         classic_base = masks("classic")["base"]
         slim_base = masks("slim")["base"]

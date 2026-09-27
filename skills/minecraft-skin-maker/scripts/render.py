@@ -114,9 +114,10 @@ def previews(png, model, destination, title="Minecraft skin"):
         texture = source.convert("RGBA")
     if texture.size != (64, 64):
         raise ValueError("Preview source must be the exported 64x64 PNG")
+    # Both three-quarter views, so asymmetric details on either side get an angled look.
     views = [("front", 0, 0, "FRONT"), ("back", 180, 0, "BACK"),
-             ("three-quarter", -33, 16, "THREE-QUARTER")]
-    sheet = Image.new("RGB", (1140, 624), "#eef1f4")
+             ("three-quarter", -33, 16, "WEARER'S RIGHT"), ("three-quarter-left", 33, 16, "WEARER'S LEFT")]
+    sheet = Image.new("RGB", (20+380*len(views), 624), "#eef1f4")
     draw = ImageDraw.Draw(sheet)
     font = ImageFont.load_default(size=28)
     small = ImageFont.load_default(size=15)

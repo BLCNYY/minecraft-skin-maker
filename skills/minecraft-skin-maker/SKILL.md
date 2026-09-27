@@ -16,14 +16,14 @@ Use an agent with file read/write access, Python execution and image inspection 
 1. For an image, inspect the actual attachment using the available image-viewing tool. If it is an existing skin atlas, start with the importer below to preserve its design and model. For text, interpret the description in its language. Read [likeness-and-pixel-art.md](references/likeness-and-pixel-art.md) when translating a reference or improving visual quality. Save a short `reference_brief` in the design: distinguishing features, their left/right orientation, expression, materials and assumptions for unseen areas. Keep these decisions internal and explain only useful, significant assumptions after delivery.
 2. Read [design-format.md](references/design-format.md). Write editable design JSON with named palette entries and independent components. Build a design specific to this request; arbitrary face-local pixel patterns support humans, animals, robots, armor and clothing. `assets/blank-design.json` and the UV maps/masks are reusable coordinate aids. `assets/examples/` contains two complete designs to illustrate component organization; design each new character from its own input.
 3. Resolve the head's hairline, eyes and expression before adding outfit details. Use contiguous shading that describes locks, folds or surface form. Keep broad areas of smooth cloth quiet. Use outer layers selectively for overlapping hair, collars, cords and cuffs within the standard player model. Align seams and bands across faces. The wearer's right is the viewer's left in a front view. Keep every used base pixel opaque and unused pixels transparent. Assemble and export with the helper below.
-4. For a local reference image, pass it to `build --reference` and open `reference-review.png`; compare the original, enlarged head details and small full-body view. If the usable reference is visible only in the conversation, compare it directly with the rendered views. Also open `preview.png` for front, back and three-quarter views. Follow the visual questions in the likeness guide, correct concrete mismatches, then rebuild and recheck. These previews sample `skin.png` directly. Inspect another angle or the UV tiles when needed. Record the actual final inspection and texture hash in `visual-inspection.md`; passing format checks alone does not establish likeness.
+4. For a local reference image, pass it to `build --reference` and open `reference-review.png`; compare the original, enlarged head details and small full-body view. If the usable reference is visible only in the conversation, compare it directly with the rendered views. Also open `preview.png` for front, back and both three-quarter views. Follow the visual questions in the likeness guide, correct concrete mismatches, then rebuild and recheck. These previews sample `skin.png` directly. Inspect another angle when needed. To place or fix exact pixels, run `faces` and read the gridded tile of the face you are editing. Record the actual final inspection and texture hash in `visual-inspection.md`; passing format checks alone does not establish likeness.
 5. Deliver the skin and preview first, then the Bedrock pack and short import instructions in the user's language. Keep technical explanations brief. State the required Classic or Slim selection as an import instruction after delivery. Keep `design.json` for revisions and provide it when useful. Record actual visual inspection separately from the automated report.
 
 Optional image generation can help explore a concept or supply a reference. Final placement, PNG export and validation stay deterministic. A generated character illustration is not an exported-skin preview. The agent supplies interpretation and pixel-design decisions through its normal model access; the helpers require no separate image-generation API account.
 
 ## Run the helpers
 
-Use Python 3.10+ with Pillow and NumPy. Prefer an already available interpreter that imports both. On first use, if needed, create a local environment in the skill directory and install `requirements.txt`; handle this automatically within normal tool permissions. The following examples use a POSIX shell; adapt the syntax to the host. On Windows, a virtual environment's interpreter is `.venv\Scripts\python.exe`. `SKILL_DIR` means the absolute directory containing this file:
+Use Python 3.9+ with Pillow and NumPy; the Python 3.9 built into macOS works. Prefer an already available interpreter that imports both. On first use, if needed, create a local environment in the skill directory and install `requirements.txt`; handle this automatically within normal tool permissions. The following examples use a POSIX shell; adapt the syntax to the host. On Windows, a virtual environment's interpreter is `.venv\Scripts\python.exe`. `SKILL_DIR` means the absolute directory containing this file:
 
 ```sh
 python3 -m venv "$SKILL_DIR/.venv"
@@ -40,11 +40,11 @@ Set `PY` to that interpreter (or the working bundled Python); keep all generated
 "$PY" "$SKILL_DIR/scripts/skinmaker.py" validate outputs/my-character/skin.mcpack --model classic --png outputs/my-character/skin.png
 ```
 
-`build` defaults to both exports and writes PNG, mcpack, three individual views, a preview sheet, editable JSON, import notes and validation evidence. `--reference` also creates a local comparison sheet and records both source hashes; it leaves likeness review pending until the agent inspects it. Use `--export java` for an explicit PNG-only request; `--export bedrock` retains the main PNG and includes the pack. It validates size, masks, base opacity, alpha, references, geometry, UUIDs, localization and ZIP contents. A zero exit status means automated format checks passed.
+`build` defaults to both exports and writes PNG, mcpack, four individual views, a preview sheet, editable JSON, import notes and validation evidence. `--reference` also creates a local comparison sheet and records both source hashes; it leaves likeness review pending until the agent inspects it. Use `--export java` for an explicit PNG-only request; `--export bedrock` retains the main PNG and includes the pack. It validates size, masks, base opacity, alpha, references, geometry, UUIDs, localization and ZIP contents. A zero exit status means automated format checks passed.
 
 ## Revise or import
 
-Read the previous design. Edit only the requested palette keys/components; write a new version. Preserve unrelated features and check the resulting pixel differences. Examples:
+Read the previous design. Edit only the requested palette keys/components; write a new version. Preserve unrelated features and check the resulting pixel differences with `diff`. Examples:
 
 ```sh
 "$PY" "$SKILL_DIR/scripts/skinmaker.py" revise design.json --set 'jacket=#a43d47' --set 'jacket_shadow=#6f2933' --out design-red.json
@@ -55,7 +55,11 @@ Read the previous design. Edit only the requested palette keys/components; write
 "$PY" "$SKILL_DIR/scripts/skinmaker.py" preview skin.png --model classic --yaw 33 --pitch 16 --out outputs/opposite-view
 "$PY" "$SKILL_DIR/scripts/skinmaker.py" review skin.png --reference reference.png --model classic --out outputs/review
 "$PY" "$SKILL_DIR/scripts/skinmaker.py" pack skin.png --model slim --name "My character" --out skin.mcpack
+"$PY" "$SKILL_DIR/scripts/skinmaker.py" faces skin.png --model classic --part head --out outputs/faces
+"$PY" "$SKILL_DIR/scripts/skinmaker.py" diff old/skin.png new/skin.png --model classic --out outputs/diff
 ```
+
+`faces` writes one enlarged sheet per part with every base and outer face, a pixel grid and the face-local x,y numbers used in design operations; transparent pixels show as a checkerboard. After any revision, run `diff` on the previous and new `skin.png`: it lists changed pixels per face with face-local bounding boxes, and `--out` outlines them on face sheets. Changes outside the requested feature mean the edit leaked; fix them before delivery.
 
 The importer accepts modern 64×64 and legacy 64×32 PNGs, preserves pixel data in a portable embedded source, and reports compatibility repairs. Use `import --model slim` or `--model classic` when reliable source metadata identifies the model. The model converter repacks/resamples arm faces while preserving all other pixels. Review narrow motifs after width changes.
 

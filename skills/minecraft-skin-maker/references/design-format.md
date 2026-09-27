@@ -51,13 +51,17 @@ Components run in order and must have unique IDs. Operations replace pixels (inc
 - `points`, `points: [[x,y], ...]`, `color`: individual pixels.
 - `line`, `points`, `color`, optional `width` (default 1).
 - `polygon`, `points`, `color`: filled polygon.
-- `pixels`, `at: [x,y]`, `rows: [".AB.", "ABBA"]`, `map: {"A":"hair","B":"#987865"}`: hand-authored pixel art. A dot preserves the previous pixel. Map another symbol to `transparent` to erase outer pixels. All rows must fit the face.
+- `pixels`, `at: [x,y]`, `rows: [".AB.", "ABBA"]`, `map: {"A":"hair","B":"#987865"}`: hand-authored pixel art. A dot preserves the previous pixel. Map another symbol to `transparent` to erase outer pixels. All rows must fit the face. `at` defaults to `[0,0]`.
+
+To avoid repeating the same `map` in every `pixels` operation, put a design-level `"symbols": {"H": "hair", "s": "skin"}` next to `palette`. Each `pixels` operation uses these symbols; its own optional `map` overrides individual letters.
+
+The assembler is strict. Unknown or misspelled keys (for example `colour` or `paints`), missing fields, transparent paint on a base face and partial alpha on an outer face stop the build with a message naming the component, operation index and face. Allowed optional metadata: `notes`, `reference_brief`, `request` and `description` on the design; `note`, `notes` and `description` on a component.
 
 Colors are named palette keys or `#RRGGBB`/`#RRGGBBAA`. Base alpha must equal 255. Use alpha 0 or 255 for outer layers so the same skin behaves consistently in Java and Bedrock. No random noise, automatic gradients or hidden styling is added by the assembler.
 
 ## Revision behavior
 
-Use specific palette keys such as `jacket`, `jacket_light`, `jacket_shadow`, `scarf`, `hair`, `hair_light`. A jacket edit should update only jacket keys or jacket components, even if another garment currently has the same color. Keep the previous design and outputs in a separate directory. Compare actual pixel differences and check they stay inside the intended faces or materials.
+Use specific palette keys such as `jacket`, `jacket_light`, `jacket_shadow`, `scarf`, `hair`, `hair_light`. A jacket edit should update only jacket keys or jacket components, even if another garment currently has the same color. Keep the previous design and outputs in a separate directory. Run `skinmaker.py diff` on the old and new `skin.png` and check the changed pixels stay inside the intended faces or materials.
 
 `revise --model slim` retains `canvas_model` and resamples only arm face widths using nearest-neighbor sampling. All non-arm pixels remain exact. Moving side and back tiles is necessary to repack the arm net. Width reduction can lose a pixel of small motifs: inspect and refine affected arms. Operations remain in `canvas_model` coordinates for future edits.
 

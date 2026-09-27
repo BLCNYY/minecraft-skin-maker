@@ -14,6 +14,7 @@ import bedrock
 import design
 import render
 import review
+import tiles
 import uv
 
 # Hand-specified atlas rectangles: top,bottom,right,front,left,back.
@@ -211,6 +212,71 @@ class SkinTests(unittest.TestCase):
         data=design.fresh()
         data["components"]=[{"id":"bad","paint":[{"target":"head.base.front","op":"rect","box":[7,0,2,2],"color":"#ff0000"}]}]
         with self.assertRaises(ValueError): design.assemble(data)
+
+    def test_misspelled_keys_rejected_instead_of_ignored(self):
+        for component in ({"id":"a","paints":[]},
+                          {"id":"a","paint":[{"target":"head.base.front","op":"fill","colour":"#ff0000"}]},
+                          {"id":"a","paint":[{"target":"head.base.front","op":"rect","box":[0,0,1,1],"color":"#ff0000","widht":2}]},
+                          {"paint":[]}):
+            data=design.fresh()
+            data["components"]=[component]
+            with self.assertRaises(ValueError): design.assemble(data)
+
+    def test_transparent_base_paint_names_the_face(self):
+        data=design.fresh()
+        data["components"]=[{"id":"hole","paint":[{"target":"head.base.front","op":"points","points":[[1,1]],"color":"transparent"}]}]
+        with self.assertRaisesRegex(ValueError,r"hole, head\.base\.front"): design.assemble(data)
+
+    def test_design_symbols_are_shared_and_overridable(self):
+        data=design.fresh()
+        data["symbols"]={"A":"#ff0000","B":"#00ff00"}
+        data["components"]=[{"id":"art","paint":[{"target":"head.base.front","op":"pixels","rows":["AB"],"map":{"B":"#0000ff"}}]}]
+        image=design.assemble(data)
+        self.assertEqual(image.getpixel((8,8)),(255,0,0,255))
+        self.assertEqual(image.getpixel((9,8)),(0,0,255,255))
+
+    def test_legacy_opaque_hat_cleared_and_real_hat_kept(self):
+        image=fixture("classic",outer=True).crop((0,0,64,32))
+        image.paste((0,0,0,255),(32,0,64,16))
+        path=self.root/"legacy-solid-hat.png"
+        image.save(path)
+        out=design.assemble(design.import_skin(path))
+        self.assertEqual(out.getpixel((40,8))[3],0)
+        image.putpixel((33,0),(0,0,0,0))
+        image.save(path)
+        out=design.assemble(design.import_skin(path))
+        self.assertEqual(out.getpixel((40,8)),(0,0,0,255))
+
+    def test_diff_reports_face_local_changes(self):
+        before=self.root/"before.png"
+        after=self.root/"after.png"
+        image=design.assemble(design.fresh())
+        image.save(before)
+        image.putpixel((8+3,8+5),(1,2,3,255))  # head.base.front at face-local (3,5)
+        image.save(after)
+        report=tiles.difference(before,after,"classic",self.root/"diff")
+        self.assertEqual(report["changed_pixels"],1)
+        self.assertEqual(report["faces"],{"head.base.front":{"pixels":1,"box":[3,5,1,1]}})
+        self.assertTrue(Path(report["sheets"][0]).exists())
+
+    def test_face_sheets_cover_requested_parts(self):
+        png=self.root/"skin.png"
+        fixture("slim",outer=True).save(png)
+        result=tiles.face_sheets(png,"slim",self.root/"faces",("head","left_arm"))
+        self.assertEqual([Path(p).name for p in result["sheets"]],["faces-head.png","faces-left_arm.png"])
+
+    def test_preview_shows_both_three_quarter_sides(self):
+        data=design.fresh()
+        data["base"]["right_arm"]="#e53945"
+        data["base"]["left_arm"]="#39b65a"
+        png=self.root/"skin.png"
+        design.assemble(data).save(png)
+        render.previews(png,"classic",self.root)
+        for name,near,far in (("three-quarter",(229,57,69),(57,182,90)),("three-quarter-left",(57,182,90),(229,57,69))):
+            with Image.open(self.root/f"{name}.png") as view:
+                colors={view.getpixel((x,240))[:3] for x in range(360)}
+            # The arm nearest the camera is fully visible; exact shading varies by face.
+            self.assertTrue(any(abs(c[0]-near[0])<40 and abs(c[1]-near[1])<40 for c in colors),name)
 
     def test_semantic_palette_revision_preserves_other_pixels(self):
         data=design.fresh()
