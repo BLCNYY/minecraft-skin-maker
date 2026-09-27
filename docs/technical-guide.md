@@ -58,7 +58,7 @@ An agent without native skill discovery can read [SKILL.md](../skills/minecraft-
 The complete workflow needs an agent that can:
 
 - Read the skill's instructions and supporting files, and write output files.
-- Run Python 3.10+ with Pillow and NumPy, setting up dependencies when needed.
+- Run Python 3.9+ (the version built into macOS works) with Pillow and NumPy, setting up dependencies when needed.
 - Inspect reference images and generated previews. Text requests also include a visual review of the output.
 
 The chosen model and tools supply image interpretation and creative decisions. Generation uses that agent's normal account and usage limits. The Python helpers assemble and render locally without a separate image-generation API. `agents/openai.yaml` supplies optional Codex interface metadata; the shared workflow and helpers work independently of that file.
@@ -123,7 +123,7 @@ Run the checks:
 python skills/minecraft-skin-maker/scripts/selftest.py --out work/checks
 ```
 
-The suite has 28 checks covering Classic/Slim texture layouts, face orientation, transparency, imports, revisions, preview sources and Bedrock packages. CI also rebuilds the OG example and checks that its PNG matches the committed skin.
+The suite has 35 checks covering Classic/Slim texture layouts, face orientation, transparency, strict design validation, imports (including legacy hat handling), revisions and pixel diffs, preview sources and Bedrock packages. CI also rebuilds the OG example and checks that its PNG matches the committed skin.
 
 Build the plugin, standalone skill and SkillHub ZIPs, with checksums:
 

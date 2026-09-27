@@ -10,6 +10,7 @@ import design
 import bedrock
 import render
 import review
+import tiles
 import uv
 
 
@@ -29,7 +30,7 @@ def build(data, destination, export="both", reference=None):
     if reference:
         protected = Path(reference).resolve()
         generated = ("skin.png", "design.json", "front.png", "back.png", "three-quarter.png",
-                     "preview.png", "reference-review.png", "skin.mcpack", "IMPORT.txt", "validation.json")
+                     "three-quarter-left.png", "preview.png", "reference-review.png", "skin.mcpack", "IMPORT.txt", "validation.json")
         if protected in { (destination/name).resolve() for name in generated }:
             raise ValueError("Choose a separate output directory so the reference image stays unchanged")
         # Detect unusable input before writing any output artifacts.
@@ -109,6 +110,16 @@ def main():
     imp.add_argument("--out", required=True)
     imp.add_argument("--name")
     imp.add_argument("--model", choices=("auto", "classic", "slim"), default="auto")
+    grid = sub.add_parser("faces", help="Enlarged, gridded face tiles with face-local coordinates")
+    grid.add_argument("png")
+    grid.add_argument("--model", choices=("classic", "slim"), default="classic")
+    grid.add_argument("--part", action="append", choices=uv.PARTS, help="Repeat for several parts; default all")
+    grid.add_argument("--out", required=True)
+    diff = sub.add_parser("diff", help="List changed pixels per face between two skin PNGs")
+    diff.add_argument("before")
+    diff.add_argument("after")
+    diff.add_argument("--model", choices=("classic", "slim"), default="classic")
+    diff.add_argument("--out", help="Also write face sheets with changed pixels outlined")
     template = sub.add_parser("templates", help="Generate both models' UV guides and masks")
     template.add_argument("--out", required=True)
     args = parser.parse_args()
@@ -134,6 +145,8 @@ def main():
         elif args.command == "review":
             result = {"ok":True,**review.reference_review(args.png,args.reference,args.model,args.out,args.name)}
         elif args.command == "revise":
+            if any("=" not in item for item in args.set):
+                raise ValueError("--set expects KEY=#RRGGBB, for example --set 'jacket=#a43d47'")
             palette = dict(item.split("=", 1) for item in args.set)
             revised = design.revise(design.read(args.design), palette, args.model, args.name)
             design.write(args.out, revised)
@@ -142,6 +155,10 @@ def main():
             data = design.import_skin(args.png, args.name, args.model)
             design.write(args.out, data)
             result = {"ok": True, "design": args.out, "model": data["model"], "notes": data["notes"]}
+        elif args.command == "faces":
+            result = tiles.face_sheets(args.png, args.model, args.out, args.part or uv.PARTS)
+        elif args.command == "diff":
+            result = tiles.difference(args.before, args.after, args.model, args.out)
         elif args.command == "templates":
             uv.templates(args.out)
             result = {"ok": True, "templates": args.out}
